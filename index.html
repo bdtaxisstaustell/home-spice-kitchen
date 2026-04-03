@@ -9,79 +9,57 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: #f5f5f5;
+    background: #f2f8fb;
     color: #222;
 }
 
 /* HEADER */
 header {
-    background: white;
+    background: #e6f4fb;
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #cde7f5;
 }
 
 header h1 {
     margin: 0;
-    color: #ff5a00;
+    color: #2a9fd6;
 }
 
-/* INTRO STRIP */
+/* INTRO */
 .intro {
-    background: #fff3e8;
-    padding: 14px;
+    background: #f0f9ff;
+    padding: 12px;
     text-align: center;
     font-size: 14px;
-    border-bottom: 1px solid #eee;
 }
 
 /* NAV */
 .nav {
     text-align: center;
     padding: 10px;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: white;
 }
 
 .nav a {
     margin: 0 10px;
     text-decoration: none;
     color: #444;
-    font-weight: 500;
-}
-
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 25px 20px;
-}
-
-.hero a {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 18px;
-    background: #ff5a00;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
 }
 
 /* BANNER */
 .banner {
-    background: #fff;
-    padding: 10px;
     text-align: center;
+    padding: 10px;
     font-size: 14px;
-    border-bottom: 1px solid #eee;
 }
 
 /* URGENCY */
 .urgency {
-    background: #ff5a00;
+    background: #2a9fd6;
     color: white;
     text-align: center;
     padding: 10px;
-    font-size: 14px;
     font-weight: bold;
 }
 
@@ -92,60 +70,59 @@ header h1 {
     padding: 20px;
 }
 
-/* TITLES */
-.section-title {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* MENU */
+/* CARD */
 .card {
     background: white;
-    border-radius: 10px;
     padding: 15px;
-    margin-bottom: 12px;
-    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e5e5;
 }
 
 /* QTY */
 .qty {
     display: flex;
     align-items: center;
-    margin-top: 8px;
 }
 
 .qty button {
-    width: 32px;
-    height: 32px;
-    border: none;
-    background: #ff5a00;
+    width: 30px;
+    height: 30px;
+    background: #2a9fd6;
     color: white;
+    border: none;
     border-radius: 5px;
-    cursor: pointer;
 }
 
 .qty span {
     margin: 0 10px;
 }
 
-/* FORM */
-.form-box {
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #2a9fd6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* BOX */
+.box {
+    display: none;
     background: white;
     padding: 15px;
     border-radius: 10px;
     margin-top: 20px;
-    border: 1px solid #eee;
 }
 
+/* INPUT */
 input, select {
     width: 100%;
     padding: 10px;
-    margin-top: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+    margin: 10px 0;
 }
 
 /* CART */
@@ -154,27 +131,9 @@ input, select {
     bottom: 0;
     width: 100%;
     background: white;
-    padding: 12px;
+    padding: 10px;
     text-align: center;
     border-top: 1px solid #ddd;
-}
-
-.checkout-btn {
-    width: 90%;
-    padding: 12px;
-    background: #ff5a00;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 13px;
-    color: #777;
 }
 </style>
 </head>
@@ -183,161 +142,145 @@ footer {
 
 <header>
     <h1>Home Spice Catering</h1>
-    <p>Powered by Trina's Kitchen</p>
 </header>
 
-<!-- 🔥 TOP INTRO -->
 <div class="intro">
-    Home Spice Catering is a home-based kitchen powered by <strong>Trina’s Kitchen</strong>, 
-    offering authentic Bangladeshi and Indian home-style cooking — not restaurant food.
+Home Spice Catering is a home-based kitchen powered by <strong>Trina’s Kitchen</strong>, offering authentic Bangladeshi and Indian home-style cooking.
 </div>
 
 <div class="nav">
     <a href="#">Menu</a>
-    <a href="event-catering.html">Book Event Catering</a>
-    <a href="#about">About</a>
-    <a href="#opening">Opening</a>
-</div>
-
-<div class="hero">
-    <h2>Fresh Homemade Food</h2>
-    <p>Authentic flavours delivered to your door</p>
     <a href="event-catering.html">Book Catering</a>
 </div>
 
 <div class="banner">
-    Minimum order £40 • £1.50/mile • PL24/25/26 • Order 3hrs before • 9AM–9PM
+Minimum £40 • £1.5/mile • PL24/25/26 • 3hr notice • 9AM–9PM
 </div>
 
 <div class="urgency">
-    ⚠️ Limited slots available per day — early booking recommended
+⚠️ Limited slots available daily
 </div>
 
 <div class="container">
 
-    <div class="section-title">Menu</div>
+<h3>Menu</h3>
 
-    <div class="card">
-        <h3>Lamb Akhni (£14)</h3>
-        <div class="qty">
-            <button onclick="changeQty('akhni', -1)">-</button>
-            <span id="akhni">0</span>
-            <button onclick="changeQty('akhni', 1)">+</button>
-        </div>
-    </div>
+<div class="card">
+Lamb Akhni (£14)
+<div class="qty">
+<button onclick="changeQty('akhni',-1)">-</button>
+<span id="akhni">0</span>
+<button onclick="changeQty('akhni',1)">+</button>
+</div>
+</div>
 
-    <div class="card">
-        <h3>Chicken Biryani (£14)</h3>
-        <div class="qty">
-            <button onclick="changeQty('biryani', -1)">-</button>
-            <span id="biryani">0</span>
-            <button onclick="changeQty('biryani', 1)">+</button>
-        </div>
-    </div>
+<div class="card">
+Chicken Biryani (£14)
+<div class="qty">
+<button onclick="changeQty('biryani',-1)">-</button>
+<span id="biryani">0</span>
+<button onclick="changeQty('biryani',1)">+</button>
+</div>
+</div>
 
-    <div class="card">
-        <h3>Gulab Jamun (£10)</h3>
-        <div class="qty">
-            <button onclick="changeQty('gulab', -1)">-</button>
-            <span id="gulab">0</span>
-            <button onclick="changeQty('gulab', 1)">+</button>
-        </div>
-    </div>
+<div class="card">
+Chicken Curry (£15)
+<div class="qty">
+<button onclick="changeQty('curry',-1)">-</button>
+<span id="curry">0</span>
+<button onclick="changeQty('curry',1)">+</button>
+</div>
+</div>
 
-    <div class="card">
-        <h3>Rasmalai (£10)</h3>
-        <div class="qty">
-            <button onclick="changeQty('rasmalai', -1)">-</button>
-            <span id="rasmalai">0</span>
-            <button onclick="changeQty('rasmalai', 1)">+</button>
-        </div>
-    </div>
+<!-- CONFIRM -->
+<button class="btn" onclick="showSummary()">Confirm Order</button>
 
-    <div class="card">
-        <h3>Chicken Curry (£15)</h3>
-        <div class="qty">
-            <button onclick="changeQty('curry', -1)">-</button>
-            <span id="curry">0</span>
-            <button onclick="changeQty('curry', 1)">+</button>
-        </div>
-    </div>
+<!-- ORDER SUMMARY -->
+<div class="box" id="summaryBox">
+<h3>Order Summary</h3>
+<p id="summaryText"></p>
 
-    <div class="form-box">
-        <div class="section-title">Customer Details</div>
+<button class="btn" onclick="showForm()">Continue</button>
+</div>
 
-        <input id="name" placeholder="Full Name">
-        <input id="phone" placeholder="Phone Number">
-        <input id="address" placeholder="Delivery Address">
+<!-- DELIVERY FORM -->
+<div class="box" id="formBox">
+<h3>Delivery Details</h3>
 
-        <select id="time">
-            <option value="">Delivery Time</option>
-            <option>ASAP</option>
-            <option>1 Hour</option>
-            <option>2 Hours</option>
-        </select>
-    </div>
+<input id="name" placeholder="Name">
+<input id="phone" placeholder="Phone">
+<input id="address" placeholder="Address">
 
-    <div id="about" class="form-box">
-        <div class="section-title">About</div>
-        <p>Authentic home cooking from Trina’s Kitchen — fresh, traditional, and made with care.</p>
-    </div>
+<select id="time">
+<option>ASAP</option>
+<option>1 Hour</option>
+<option>2 Hours</option>
+</select>
 
-    <div id="opening" class="form-box">
-        <div class="section-title">Opening Times</div>
-        <p>9:00 AM – 9:00 PM (Pre-orders only)</p>
-    </div>
+<button class="btn" onclick="checkout()">Place Order</button>
+</div>
 
 </div>
 
 <div class="cart">
-    <h3>Total: £<span id="total">0</span></h3>
-    <button class="checkout-btn" onclick="checkout()">Order via WhatsApp</button>
+Total: £<span id="total">0</span>
 </div>
 
-<footer>
-    <p>© 2026 Home Spice Catering • Trina’s Kitchen</p>
-</footer>
-
 <script>
-let prices = {
-    akhni: 14,
-    biryani: 14,
-    gulab: 10,
-    rasmalai: 10,
-    curry: 15
-};
+let prices = {akhni:14,biryani:14,curry:15};
 
-function changeQty(id, change) {
-    let el = document.getElementById(id);
-    let val = parseInt(el.innerText);
-    val += change;
-    if(val < 0) val = 0;
-    el.innerText = val;
-    updateTotal();
+function changeQty(id, change){
+let el = document.getElementById(id);
+let val = parseInt(el.innerText);
+val += change;
+if(val<0) val=0;
+el.innerText = val;
+updateTotal();
 }
 
-function updateTotal() {
-    let total = 0;
-    for(let item in prices){
-        let qty = parseInt(document.getElementById(item).innerText);
-        total += qty * prices[item];
-    }
-    document.getElementById("total").innerText = total;
+function updateTotal(){
+let total=0;
+for(let i in prices){
+let qty=parseInt(document.getElementById(i).innerText);
+total+=qty*prices[i];
+}
+document.getElementById("total").innerText=total;
+}
+
+function showSummary(){
+let total=parseInt(document.getElementById("total").innerText);
+
+if(total<40){
+alert("Minimum order £40");
+return;
+}
+
+let text="";
+for(let i in prices){
+let qty=document.getElementById(i).innerText;
+if(qty>0){
+text+=i+" x"+qty+"<br>";
+}
+}
+
+text+="<br>Total: £"+total;
+
+document.getElementById("summaryText").innerHTML=text;
+document.getElementById("summaryBox").style.display="block";
+}
+
+function showForm(){
+document.getElementById("formBox").style.display="block";
 }
 
 function checkout(){
-    let total = parseInt(document.getElementById("total").innerText);
+let total=document.getElementById("total").innerText;
+let name=document.getElementById("name").value;
+let address=document.getElementById("address").value;
 
-    if(total < 40){
-        alert("Minimum order is £40");
-        return;
-    }
+let msg="Order\\nTotal £"+total+"\\n"+name+"\\n"+address;
 
-    let phone = "44XXXXXXXXXX";
-
-    let url = "https://wa.me/" + phone + "?text=" + encodeURIComponent("Order total £" + total);
-
-    window.open(url, "_blank");
+window.open("https://wa.me/44XXXXXXXXXX?text="+encodeURIComponent(msg));
 }
 </script>
 
