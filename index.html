@@ -6,275 +6,243 @@
 <title>Home Spice Catering</title>
 
 <style>
-
-/* BASE */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f8f5f0;
-    color: #222;
+    background-color: #f8f5f0;
 }
 
-/* HEADER */
-.header {
-    background: white;
-    padding: 25px 20px;
-    text-align: center;
-    border-bottom: 1px solid #eee;
-}
-
-.header h1 {
-    margin: 0;
-    color: #b45309;
-}
-
-.tagline {
-    margin-top: 5px;
-    color: #555;
-}
-
-.powered {
-    font-size: 13px;
-    color: #888;
-    margin-top: 4px;
-}
-
-/* INFO BAR */
-.info-bar {
-    background: #fff7ed;
-    text-align: center;
-    padding: 10px;
-    font-size: 14px;
-    border-bottom: 1px solid #eee;
-}
-
-/* SECTION */
-.section {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px 20px;
-}
-
-.section h2 {
-    color: #b45309;
-}
-
-/* STORY */
-.story {
-    line-height: 1.7;
-}
-
-/* CARD */
-.card {
-    background: white;
-    padding: 18px;
-    border-radius: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #eee;
-}
-
-.card-top {
+/* NAVBAR */
+.navbar {
+    background-color: #c0392b;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
-}
-
-.desc {
-    color: #555;
-    margin: 8px 0;
-}
-
-/* QTY */
-.qty {
-    display: flex;
     align-items: center;
-}
-
-.qty button {
-    width: 32px;
-    height: 32px;
-    background: #b45309;
-    border: none;
     color: white;
 }
 
-.qty span {
-    margin: 0 10px;
+.brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand small {
+    font-size: 12px;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: white;
+}
+
+.btn {
+    background-color: #c0392b;
+    color: white;
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* MENU */
+.menu {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.category {
+    margin-top: 30px;
+}
+
+.category h3 {
+    color: #c0392b;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.menu-item button {
+    margin-left: 10px;
 }
 
 /* CART */
 .cart {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     background: white;
-    border-top: 1px solid #eee;
-    padding: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart button {
-    background: #b45309;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-}
-
-/* CONTACT */
-.contact {
-    background: white;
-    padding: 15px;
+    padding: 20px;
+    margin-top: 30px;
     border-radius: 10px;
-    border: 1px solid #eee;
 }
 
+.footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-<h1>Home Spice Catering</h1>
-<div class="tagline">Real homemade Indian & Bangladeshi food</div>
-<div class="powered">Powered by Trina’s Cloud Kitchen</div>
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="brand">
+        <strong>Home Spice Catering</strong>
+        <small>Powered by Trina’s Cloud Kitchen</small>
+    </div>
 </div>
 
-<!-- INFO BAR -->
-<div class="info-bar">
-🚚 Delivery Only • ⏱ Minimum 3 Hours Notice • 📦 Limited Daily Slots • 🕘 Open 9AM – 9PM
-</div>
-
-<!-- STORY -->
-<div class="section story">
-<h2>Our Story — From Heart to Home</h2>
-
-<p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-<br><br>
-From a young age, she found joy in the kitchen. The warmth of a home-cooked meal and the smiles that followed became her passion.
-<br><br>
-For eight years, she carried a dream — to share real homemade Indian and Bangladeshi food beyond her home.
-<br><br>
-Today, that dream has come to life.
-<br><br>
-<strong>This is not restaurant food.</strong><br>
-This is food made with care, tradition, and heart — just like home.
-</p>
+<!-- HERO -->
+<div class="hero">
+    <h2>Real Homemade Indian & Bangladeshi Food</h2>
+    <p>Not restaurant style — just proper home cooking</p>
+    <a href="#menu" class="btn">Order Now</a>
 </div>
 
 <!-- MENU -->
-<div class="section">
-<h2>Menu</h2>
+<div id="menu" class="menu">
 
-<div class="card">
-<div class="card-top"><span>Chicken Biryani</span><span>£14</span></div>
-<div class="desc">Fragrant basmati rice with tender spiced chicken.</div>
-<div class="qty">
-<button onclick="changeQty('biryani',-1)">-</button>
-<span id="biryani">0</span>
-<button onclick="changeQty('biryani',1)">+</button>
+    <div class="category">
+        <h3>Rice & Bowl Meals</h3>
+
+        <div class="menu-item">
+            Chicken Biryani – £9.99
+            <button onclick="addToCart('Chicken Biryani',9.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Lamb Akhni – £10.99
+            <button onclick="addToCart('Lamb Akhni',10.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Rajma Chawal – £6.99
+            <button onclick="addToCart('Rajma Chawal',6.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Chole Chawal – £6.99
+            <button onclick="addToCart('Chole Chawal',6.99)">Add</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>Curries</h3>
+
+        <div class="menu-item">
+            Butter Chicken – £9.99
+            <button onclick="addToCart('Butter Chicken',9.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Chicken Curry – £8.99
+            <button onclick="addToCart('Chicken Curry',8.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Paneer Butter Masala – £8.99
+            <button onclick="addToCart('Paneer Butter Masala',8.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Egg Curry – £7.99
+            <button onclick="addToCart('Egg Curry',7.99)">Add</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h3>Add-ons & Sides</h3>
+
+        <div class="menu-item">
+            Aloo Paratha – £4.99
+            <button onclick="addToCart('Aloo Paratha',4.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Gulab Jamun – £2.99
+            <button onclick="addToCart('Gulab Jamun',2.99)">Add</button>
+        </div>
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+        <h3>Your Order</h3>
+        <ul id="cartList"></ul>
+        <p><strong>Total: £<span id="total">0</span></strong></p>
+
+        <input type="text" id="address" placeholder="Enter delivery address" style="width:100%;padding:10px;margin-top:10px;">
+
+        <br><br>
+        <button class="btn" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
+    </div>
+
 </div>
-</div>
 
-<div class="card">
-<div class="card-top"><span>Lamb Akhni</span><span>£15</span></div>
-<div class="desc">Aromatic rice dish with slow-cooked lamb.</div>
-<div class="qty">
-<button onclick="changeQty('akhni',-1)">-</button>
-<span id="akhni">0</span>
-<button onclick="changeQty('akhni',1)">+</button>
-</div>
-</div>
-
-<div class="card">
-<div class="card-top"><span>Chicken Curry</span><span>£15</span></div>
-<div class="desc">Classic home-style chicken curry.</div>
-<div class="qty">
-<button onclick="changeQty('chickenCurry',-1)">-</button>
-<span id="chickenCurry">0</span>
-<button onclick="changeQty('chickenCurry',1)">+</button>
-</div>
-</div>
-
-</div>
-
-<!-- EVENT CATERING -->
-<div class="section">
-<h2>Event Catering</h2>
-
-<p>
-We cater for birthdays, family events, gatherings, and special occasions.
-</p>
-
-<ul>
-<li>Custom menus available</li>
-<li>Advance booking required</li>
-<li>Large portions for groups</li>
-</ul>
-
-<p>
-Contact us to plan your event.
-</p>
-</div>
-
-<!-- CONTACT -->
-<div class="section">
-<h2>Contact & Orders</h2>
-
-<div class="contact">
-<p><strong>Phone:</strong> 01726 806556</p>
-<p><strong>Email:</strong> info@mevagisseyspice.com</p>
-<p><strong>Opening Hours:</strong> 9AM – 9PM</p>
-<p><strong>Delivery:</strong> Delivery only (no dine-in)</p>
-<p><strong>Notice:</strong> Minimum 3 hours advance order required</p>
-</div>
-
-</div>
-
-<!-- CART -->
-<div class="cart">
-<div>Total: £<span id="total">0</span></div>
-<button onclick="checkout()">Confirm Order</button>
+<!-- FOOTER -->
+<div class="footer">
+    <p><strong>Home Spice Catering</strong></p>
+    <p>Powered by Trina’s Cloud Kitchen</p>
 </div>
 
 <script>
+let cart = [];
+let total = 0;
 
-let prices = {
-biryani:14,
-akhni:15,
-chickenCurry:15
-};
-
-function changeQty(id, change){
-let el=document.getElementById(id);
-let val=parseInt(el.innerText)+change;
-if(val<0) val=0;
-el.innerText=val;
-updateTotal();
+function addToCart(name, price) {
+    cart.push({name, price});
+    total += price;
+    updateCart();
 }
 
-function updateTotal(){
-let total=0;
-for(let i in prices){
-let qty=parseInt(document.getElementById(i).innerText);
-total+=qty*prices[i];
-}
-document.getElementById("total").innerText=total;
+function updateCart() {
+    let list = document.getElementById("cartList");
+    list.innerHTML = "";
+
+    cart.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item.name + " - £" + item.price.toFixed(2);
+        list.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = total.toFixed(2);
 }
 
-function checkout(){
-let total=parseInt(document.getElementById("total").innerText);
-if(total<40){
-alert("Minimum order £40");
-return;
-}
+function sendWhatsApp() {
+    let address = document.getElementById("address").value;
 
-window.open("https://wa.me/441726806556?text=Order Total £"+total);
-}
+    if(cart.length === 0){
+        alert("Cart is empty!");
+        return;
+    }
 
+    if(address === ""){
+        alert("Please enter address");
+        return;
+    }
+
+    let message = "🧾 *Home Spice Catering Order*\n\n";
+
+    cart.forEach(item => {
+        message += item.name + " - £" + item.price.toFixed(2) + "\n";
+    });
+
+    message += "\nTotal: £" + total.toFixed(2);
+    message += "\n\n📍 Address: " + address;
+
+    let url = "https://wa.me/441726806556?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
 </script>
 
 </body>
