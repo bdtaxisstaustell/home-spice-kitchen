@@ -6,276 +6,198 @@
 <title>Home Spice Catering</title>
 
 <style>
-
 body {
     margin: 0;
-    font-family: 'Segoe UI', Arial;
-    background: linear-gradient(to bottom, #0f172a, #1e293b);
+    font-family: Arial, sans-serif;
+    background-color: #f8f5f0;
+    color: #333;
 }
 
 /* NAVBAR */
-.nav {
-    background: #020617;
+.navbar {
+    background-color: #c0392b;
+    padding: 15px 30px;
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-    flex-wrap: wrap;
-}
-
-.nav button {
-    background: #1e40af;
+    justify-content: space-between;
+    align-items: center;
     color: white;
-    border: none;
-    padding: 10px 14px;
-    border-radius: 6px;
-    cursor: pointer;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 25px;
+.navbar h1 {
+    margin: 0;
 }
 
-header h1 {
-    color: #38bdf8;
-    font-size: 36px;
-}
-
-.sub {
+.nav-links a {
     color: white;
-    font-size: 18px;
-}
-
-/* MESSAGE */
-.home-msg {
-    text-align: center;
-    padding: 12px;
-    background: #1e293b;
-    color: #facc15;
+    text-decoration: none;
+    margin-left: 20px;
     font-weight: bold;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 20px;
+    padding: 100px 20px;
+    background: white;
 }
 
 .hero h2 {
-    color: white;
+    font-size: 36px;
 }
 
-/* CONTAINER */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
+.hero p {
+    font-size: 18px;
+    color: #666;
 }
 
-/* CARD */
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-}
-
-.card-top {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.desc {
-    font-size: 14px;
-    margin: 8px 0;
-}
-
-/* QTY */
-.qty button {
-    width: 32px;
-    height: 32px;
-    background: #1e40af;
-    color: white;
-    border: none;
-}
-
-.qty span {
-    margin: 0 10px;
-}
-
-/* BUTTON */
 .btn {
-    width: 100%;
-    padding: 14px;
-    background: #1e40af;
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #c0392b;
     color: white;
-    border: none;
-    margin-top: 10px;
+    padding: 12px 22px;
+    text-decoration: none;
+    border-radius: 6px;
 }
 
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.7);
-    overflow: auto;
-}
-
-.modal-content {
-    background: white;
-    margin: 40px auto;
-    padding: 20px;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-/* CART */
-.cart {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: white;
-    padding: 10px;
+/* MENU */
+.menu {
+    padding: 60px 20px;
     text-align: center;
 }
 
+.menu h2 {
+    color: #c0392b;
+    margin-bottom: 30px;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.menu-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.menu-card h3 {
+    margin-top: 0;
+}
+
+.price {
+    color: #c0392b;
+    font-weight: bold;
+}
+
+/* STORY */
+.story-container {
+    max-width: 800px;
+    margin: 60px auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    line-height: 1.7;
+}
+
+.story-title {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #c0392b;
+    text-align: center;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+}
 </style>
 </head>
 
 <body>
 
 <!-- NAVBAR -->
-<div class="nav">
-<button onclick="scrollToTop()">Home</button>
-<button onclick="openStory()">Home Kitchen Story</button>
-<button onclick="window.location.href='event-catering.html'">Book Event Catering</button>
-<button onclick="showOpening()">Opening Time</button>
+<div class="navbar">
+    <h1>Home Spice Catering</h1>
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#story">Our Story</a>
+    </div>
 </div>
 
-<header>
-<h1>Home Spice Catering</h1>
-<div class="sub">Powered by Trina’s Cloud Kitchen</div>
-</header>
-
-<div class="home-msg">
-🍛 Not restaurant food — real homemade Indian & Bangladeshi cooking, prepared fresh with traditional recipes
-</div>
-
+<!-- HERO -->
 <div class="hero">
-<h2>Fresh Home-Cooked Meals Delivered</h2>
+    <h2>Real Homemade Indian & Bangladeshi Food</h2>
+    <p>Not restaurant style — just proper home cooking</p>
+    <a href="#" class="btn">Order Now</a>
 </div>
 
-<div class="container">
+<!-- MENU -->
+<div id="menu" class="menu">
+    <h2>Our Food</h2>
 
-<div class="card">
-<div class="card-top"><span>Chicken Biryani</span><span>£14</span></div>
-<div class="desc">Fragrant basmati rice with tender spiced chicken.</div>
-<div class="qty">
-<button onclick="changeQty('biryani',-1)">-</button>
-<span id="biryani">0</span>
-<button onclick="changeQty('biryani',1)">+</button>
-</div>
-</div>
+    <div class="menu-items">
+        <div class="menu-card">
+            <h3>Chicken Curry</h3>
+            <p>Traditional homemade chicken curry with rich spices</p>
+            <p class="price">£8.99</p>
+        </div>
 
-<div class="card">
-<div class="card-top"><span>Lamb Akhni</span><span>£15</span></div>
-<div class="desc">Aromatic rice with slow-cooked lamb.</div>
-<div class="qty">
-<button onclick="changeQty('akhni',-1)">-</button>
-<span id="akhni">0</span>
-<button onclick="changeQty('akhni',1)">+</button>
-</div>
-</div>
+        <div class="menu-card">
+            <h3>Beef Bhuna</h3>
+            <p>Slow-cooked beef with authentic Bangladeshi spices</p>
+            <p class="price">£9.99</p>
+        </div>
 
-<!-- DESSERT -->
-<div class="card">
-<div class="card-top"><span>Birthday Cake</span><span>£25</span></div>
-<div class="desc">Perfect for birthdays.</div>
-<div class="qty">
-<button onclick="changeQty('cake',-1)">-</button>
-<span id="cake">0</span>
-<button onclick="changeQty('cake',1)">+</button>
-</div>
+        <div class="menu-card">
+            <h3>Vegetable Daal</h3>
+            <p>Comforting lentils cooked the traditional way</p>
+            <p class="price">£6.99</p>
+        </div>
+
+        <div class="menu-card">
+            <h3>Chicken Biryani</h3>
+            <p>Fragrant rice with spiced chicken, cooked at home style</p>
+            <p class="price">£8.99</p>
+        </div>
+    </div>
 </div>
 
-<button class="btn" onclick="showSummary()">Confirm Order</button>
+<!-- STORY -->
+<div id="story" class="story-container">
+    <div class="story-title">Our Story — From Heart to Home</div>
 
+    <p>For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.</p>
+
+    <p>From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.</p>
+
+    <p>For the past eight years, Ms Trina held onto a quiet dream — to share her food with more people, not as restaurant-style dishes, but as proper homemade Indian and Bangladeshi meals.</p>
+
+    <p>Today, that dream has finally come to life.</p>
+
+    <p><strong>Home Spice Catering</strong> is not just a kitchen — it is the result of passion, patience, and belief.</p>
+
+    <p><strong>This is food made with care — just like home.</strong></p>
 </div>
 
-<div class="cart">
-Total: £<span id="total">0</span>
+<!-- FOOTER -->
+<div class="footer">
+    <p><strong>Home Spice Catering</strong></p>
+    <p>Powered by Trina’s Cloud Kitchen</p>
+    <p>© 2026 All Rights Reserved</p>
 </div>
-
-<!-- STORY MODAL -->
-<div class="modal" id="storyModal">
-<div class="modal-content">
-<h2>Our Story — From Heart to Home</h2>
-
-<p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-<br><br>
-From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.
-<br><br>
-For the past eight years, Ms Trina held onto a quiet dream — to share her food with more people.
-<br><br>
-Today, that dream has finally come to life.
-<br><br>
-<strong>This is not restaurant food.</strong><br>
-This is food made with care, with tradition, and with heart — just like home.
-</p>
-
-<button class="btn" onclick="closeStory()">Close</button>
-</div>
-</div>
-
-<script>
-
-let prices = {biryani:14, akhni:15, cake:25};
-
-function changeQty(id, change){
-let el=document.getElementById(id);
-let val=parseInt(el.innerText)+change;
-if(val<0) val=0;
-el.innerText=val;
-updateTotal();
-}
-
-function updateTotal(){
-let total=0;
-for(let i in prices){
-total+=parseInt(document.getElementById(i).innerText)*prices[i];
-}
-document.getElementById("total").innerText=total;
-}
-
-function showSummary(){
-alert("Proceeding to order...");
-}
-
-function scrollToTop(){
-window.scrollTo({top:0, behavior:'smooth'});
-}
-
-function openStory(){
-document.getElementById("storyModal").style.display="block";
-}
-
-function closeStory(){
-document.getElementById("storyModal").style.display="none";
-}
-
-function showOpening(){
-alert("Open daily 9AM – 9PM\nMinimum 3 hours notice required");
-}
-
-</script>
 
 </body>
 </html>
