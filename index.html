@@ -3,99 +3,279 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Spice Kitchen</title>
+<title>Home Spice Catering</title>
 
 <style>
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: #fff8f0;
     color: #333;
 }
 
 header {
-    background: #b22222;
+    background: linear-gradient(135deg, #b22222, #ff6600);
     color: white;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
 }
 
 .hero {
-    padding: 40px 20px;
+    padding: 30px;
     text-align: center;
 }
 
 .hero h1 {
-    font-size: 32px;
+    margin-bottom: 10px;
 }
 
-.button {
-    display: inline-block;
-    padding: 12px 20px;
+.container {
+    padding: 20px;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.qty {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.qty button {
+    width: 30px;
+    height: 30px;
+    border: none;
     background: #ff6600;
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 15px;
+    cursor: pointer;
+}
+
+.qty span {
+    margin: 0 10px;
+}
+
+.cart {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #111;
+    color: white;
+    padding: 15px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 12px;
+    background: #ff6600;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    font-size: 16px;
 }
 
 .section {
-    padding: 30px 20px;
-}
-
-.menu-item {
-    margin-bottom: 15px;
+    padding: 20px;
+    text-align: center;
 }
 
 footer {
-    background: #222;
+    background: #111;
     color: white;
     text-align: center;
     padding: 15px;
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
-    <h2>Home Spice Kitchen</h2>
-    <p>Homemade Indian Food • St Austell</p>
+    <h1>Home Spice Catering</h1>
+    <p>Homemade Indian Food • Delivery & Event Catering • St Austell</p>
 </header>
 
 <div class="hero">
     <h1>Fresh Homemade Indian Food</h1>
-    <p>Cooked with love and authentic spices, delivered to your door</p>
-    <a class="button" href="https://wa.me/447000000000">Order on WhatsApp</a>
+    <p>Cooked with authentic spices. Delivered or prepared at your event.</p>
 </div>
 
-<div class="section">
+<div class="container">
     <h2>Our Menu</h2>
 
-    <div class="menu-item">
-        <strong>Chicken Curry</strong> – £8.99
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Lamb Akhni (£14)</h3>
+            <p>Fragrant rice with tender lamb.</p>
+            <div class="qty">
+                <button onclick="changeQty('akhni', -1)">-</button>
+                <span id="akhni">0</span>
+                <button onclick="changeQty('akhni', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Chicken Biryani (£14)</h3>
+            <p>Classic spiced rice with chicken.</p>
+            <div class="qty">
+                <button onclick="changeQty('biryani', -1)">-</button>
+                <span id="biryani">0</span>
+                <button onclick="changeQty('biryani', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Gulab Jamun (£10)</h3>
+            <p>Sweet syrup dumplings.</p>
+            <div class="qty">
+                <button onclick="changeQty('gulab', -1)">-</button>
+                <span id="gulab">0</span>
+                <button onclick="changeQty('gulab', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Rasmalai (£10)</h3>
+            <p>Soft milk dessert.</p>
+            <div class="qty">
+                <button onclick="changeQty('rasmalai', -1)">-</button>
+                <span id="rasmalai">0</span>
+                <button onclick="changeQty('rasmalai', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://via.placeholder.com/300x200" alt="">
+            <h3>Chicken Curry (£15)</h3>
+            <p>Authentic home-style curry.</p>
+            <div class="qty">
+                <button onclick="changeQty('curry', -1)">-</button>
+                <span id="curry">0</span>
+                <button onclick="changeQty('curry', 1)">+</button>
+            </div>
+        </div>
+
     </div>
 
-    <div class="menu-item">
-        <strong>Lamb Biryani</strong> – £9.99
-    </div>
-
-    <div class="menu-item">
-        <strong>Vegetable Samosa (2)</strong> – £3.50
-    </div>
+    <h2>Customer Details</h2>
+    <input id="name" placeholder="Your Name">
+    <input id="phone" placeholder="Phone Number">
+    <input id="address" placeholder="Delivery Address">
+    
+    <select id="time">
+        <option value="">Select Delivery Time</option>
+        <option>ASAP</option>
+        <option>1 Hour</option>
+        <option>2 Hours</option>
+    </select>
 
 </div>
 
 <div class="section">
-    <h2>About Us</h2>
-    <p>
-        We are a home-based kitchen in St Austell preparing fresh, homemade Indian meals using traditional spices and recipes. Every dish is cooked with care and delivered hot to your doorstep.
-    </p>
+    <h2>Event Catering</h2>
+    <p>We provide cooking services for birthdays, parties, and home events. We can cook fresh Indian food live at your location.</p>
+</div>
+
+<div class="cart">
+    <h3>Total: £<span id="total">0</span></h3>
+    <button class="checkout-btn" onclick="checkout()">Place Order on WhatsApp</button>
 </div>
 
 <footer>
-    <p>© 2026 Home Spice Kitchen • St Austell</p>
+    <p>© 2026 Home Spice Catering • St Austell</p>
 </footer>
+
+<script>
+let prices = {
+    akhni: 14,
+    biryani: 14,
+    gulab: 10,
+    rasmalai: 10,
+    curry: 15
+};
+
+function changeQty(id, change) {
+    let el = document.getElementById(id);
+    let val = parseInt(el.innerText);
+
+    val += change;
+    if(val < 0) val = 0;
+
+    el.innerText = val;
+    updateTotal();
+}
+
+function updateTotal() {
+    let total = 0;
+    for(let item in prices){
+        let qty = parseInt(document.getElementById(item).innerText);
+        total += qty * prices[item];
+    }
+    document.getElementById("total").innerText = total;
+}
+
+function checkout(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let address = document.getElementById("address").value;
+    let time = document.getElementById("time").value;
+
+    let order = "";
+
+    for(let item in prices){
+        let qty = document.getElementById(item).innerText;
+        if(qty > 0){
+            order += item + " x" + qty + "\n";
+        }
+    }
+
+    if(order === ""){
+        alert("Please add items first");
+        return;
+    }
+
+    let message =
+    "Order - Home Spice Catering\n\n" +
+    order +
+    "\nTotal: £" + document.getElementById("total").innerText +
+    "\n\nName: " + name +
+    "\nPhone: " + phone +
+    "\nAddress: " + address +
+    "\nDelivery Time: " + time;
+
+    let businessPhone = "447XXXXXXXXX"; // PUT YOUR NUMBER
+
+    let url = "https://wa.me/" + businessPhone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
