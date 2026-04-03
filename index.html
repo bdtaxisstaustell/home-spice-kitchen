@@ -22,6 +22,7 @@ header {
 }
 
 header h1 {
+    font-size: 30px;
     margin: 0;
     color: #2a9fd6;
 }
@@ -34,17 +35,15 @@ header h1 {
     font-size: 14px;
 }
 
-/* NAV */
-.nav {
+/* HERO */
+.hero {
     text-align: center;
-    padding: 10px;
-    background: white;
+    padding: 20px;
 }
 
-.nav a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: #444;
+.hero h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
 }
 
 /* BANNER */
@@ -148,13 +147,12 @@ input, select {
 Home Spice Catering is a home-based kitchen powered by <strong>Trina’s Kitchen</strong>, offering authentic Bangladeshi and Indian home-style cooking.
 </div>
 
-<div class="nav">
-    <a href="#">Menu</a>
-    <a href="event-catering.html">Book Catering</a>
+<div class="hero">
+    <h2>Fresh Homemade Food Delivered</h2>
 </div>
 
 <div class="banner">
-Minimum £40 • £1.5/mile • PL24/25/26 • 3hr notice • 9AM–9PM
+Minimum £40 • £1.5/mile • PL24/25/26 • Order 3hrs before • 9AM–9PM
 </div>
 
 <div class="urgency">
@@ -192,18 +190,16 @@ Chicken Curry (£15)
 </div>
 </div>
 
-<!-- CONFIRM -->
 <button class="btn" onclick="showSummary()">Confirm Order</button>
 
-<!-- ORDER SUMMARY -->
+<!-- SUMMARY -->
 <div class="box" id="summaryBox">
 <h3>Order Summary</h3>
 <p id="summaryText"></p>
-
 <button class="btn" onclick="showForm()">Continue</button>
 </div>
 
-<!-- DELIVERY FORM -->
+<!-- FORM -->
 <div class="box" id="formBox">
 <h3>Delivery Details</h3>
 
@@ -212,9 +208,9 @@ Chicken Curry (£15)
 <input id="address" placeholder="Address">
 
 <select id="time">
-<option>ASAP</option>
-<option>1 Hour</option>
 <option>2 Hours</option>
+<option>3 Hours</option>
+<option>4 Hours</option>
 </select>
 
 <button class="btn" onclick="checkout()">Place Order</button>
@@ -228,6 +224,12 @@ Total: £<span id="total">0</span>
 
 <script>
 let prices = {akhni:14,biryani:14,curry:15};
+
+let itemNames = {
+akhni:"Lamb Akhni",
+biryani:"Chicken Biryani",
+curry:"Chicken Curry"
+};
 
 function changeQty(id, change){
 let el = document.getElementById(id);
@@ -256,14 +258,14 @@ return;
 }
 
 let text="";
-for(let i in prices){
+for(let i in itemNames){
 let qty=document.getElementById(i).innerText;
 if(qty>0){
-text+=i+" x"+qty+"<br>";
+text+=itemNames[i]+" x"+qty+"<br>";
 }
 }
 
-text+="<br>Total: £"+total;
+text+="<br><strong>Total: £"+total+"</strong>";
 
 document.getElementById("summaryText").innerHTML=text;
 document.getElementById("summaryBox").style.display="block";
@@ -274,13 +276,33 @@ document.getElementById("formBox").style.display="block";
 }
 
 function checkout(){
+
 let total=document.getElementById("total").innerText;
+
 let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
 let address=document.getElementById("address").value;
+let time=document.getElementById("time").value;
 
-let msg="Order\\nTotal £"+total+"\\n"+name+"\\n"+address;
+let orderText="";
 
-window.open("https://wa.me/441726806556?text="+encodeURIComponent(msg));
+for(let i in itemNames){
+let qty=document.getElementById(i).innerText;
+if(qty>0){
+orderText+=itemNames[i]+" x"+qty+"\\n";
+}
+}
+
+let msg=
+"Order - Home Spice Catering\\n\\n"+
+orderText+
+"\\nTotal: £"+total+
+"\\n\\nName: "+name+
+"\\nPhone: "+phone+
+"\\nAddress: "+address+
+"\\nTime: "+time;
+
+window.open("https://wa.me/44XXXXXXXXXX?text="+encodeURIComponent(msg));
 }
 </script>
 
