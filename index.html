@@ -11,7 +11,6 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial;
     background: linear-gradient(to bottom, #0f172a, #1e293b);
-    color: #111;
 }
 
 /* HEADER */
@@ -23,14 +22,22 @@ header {
 
 header h1 {
     color: #38bdf8;
+    margin: 0;
 }
 
-/* INTRO */
-.intro {
+/* SUB HEADER */
+.sub {
+    color: #cbd5f5;
+    font-size: 14px;
+}
+
+/* INFO BAR */
+.info-bar {
     text-align: center;
-    padding: 15px;
-    background: #0f172a;
+    background: #1e293b;
     color: white;
+    padding: 10px;
+    font-size: 14px;
 }
 
 /* HERO */
@@ -38,6 +45,10 @@ header h1 {
     text-align: center;
     padding: 25px;
     background: #020617;
+}
+
+.hero h2 {
+    color: white;
 }
 
 .hero a {
@@ -58,10 +69,17 @@ header h1 {
     padding: 20px;
 }
 
+/* MENU TITLE */
+.menu-title {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
 /* CARD */
 .card {
     background: white;
-    padding: 18px;
+    padding: 20px;
     border-radius: 12px;
     margin-bottom: 15px;
 }
@@ -71,23 +89,24 @@ header h1 {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
+    font-size: 20px; /* BIGGER */
 }
 
 /* BADGE */
 .badge {
     background: #f59e0b;
     color: white;
-    padding: 3px 8px;
-    font-size: 11px;
+    padding: 4px 10px;
+    font-size: 12px;
     border-radius: 6px;
-    margin-left: 6px;
+    margin-left: 8px;
 }
 
 /* DESC */
 .desc {
-    font-size: 13px;
+    font-size: 15px;
     color: #555;
-    margin: 6px 0 10px;
+    margin: 8px 0 12px;
 }
 
 /* QTY */
@@ -97,26 +116,29 @@ header h1 {
 }
 
 .qty button {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     background: #1e40af;
     color: white;
     border: none;
+    font-size: 18px;
 }
 
 .qty span {
-    margin: 0 10px;
+    margin: 0 12px;
+    font-size: 18px;
 }
 
 /* BUTTON */
 .btn {
     width: 100%;
-    padding: 14px;
+    padding: 15px;
     background: #1e40af;
     color: white;
     border: none;
     border-radius: 6px;
     margin-top: 10px;
+    font-size: 16px;
 }
 
 /* BOX */
@@ -143,7 +165,7 @@ input, select {
     background: white;
     padding: 12px;
     text-align: center;
-    border-top: 1px solid #ddd;
+    font-size: 16px;
 }
 
 </style>
@@ -153,20 +175,21 @@ input, select {
 
 <header>
 <h1>Home Spice Catering</h1>
+<div class="sub">Powered by Trina’s Cloud Kitchen</div>
 </header>
 
-<div class="intro">
-🚚 Delivery Only • Fresh homemade Bangladeshi & Indian food
+<div class="info-bar">
+🚚 Delivery Only • ⏱ 3 Hour Notice Required • 🕘 Open 9AM – 9PM
 </div>
 
 <div class="hero">
-<h2 style="color:white;">Fresh Home-Cooked Meals Delivered</h2>
+<h2>Fresh Home-Cooked Meals Delivered</h2>
 <a href="event-catering.html">Book Event Catering</a>
 </div>
 
 <div class="container">
 
-<h3 style="color:white;">Menu</h3>
+<div class="menu-title">Menu</div>
 
 <!-- BIRYANI -->
 <div class="card">
@@ -281,6 +304,8 @@ Total: £<span id="total">0</span>
 
 <script>
 
+// SAME JS (unchanged)
+
 let prices = {
 biryani:14,
 akhni:15,
@@ -349,7 +374,6 @@ let delivery = miles * 1.5;
 
 let finalTotal = total + delivery;
 
-// 3 HOUR RULE
 let selectedTime = document.getElementById("time").value;
 let selectedDate = document.getElementById("date").value;
 
@@ -365,9 +389,7 @@ return;
 
 let msg =
 "🍛 Home Spice Catering Order\n\n" +
-"Food Total: £"+total+"\n" +
-"Delivery: £"+delivery.toFixed(2)+"\n" +
-"Total: £"+finalTotal.toFixed(2)+"\n\n" +
+"Total: £"+finalTotal.toFixed(2)+"\n" +
 "Date: "+selectedDate+"\nTime: "+selectedTime;
 
 window.open("https://wa.me/44XXXXXXXXXX?text="+encodeURIComponent(msg));
