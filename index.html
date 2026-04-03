@@ -3,284 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Spice Catering</title>
+<title>Event Catering - Home Spice Catering</title>
 
 <style>
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f8f5f0;
+    margin:0;
+    font-family:Arial;
+    background:#f6f6f6;
 }
 
-/* NAVBAR */
-.navbar {
-    background-color: #c0392b;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    color: white;
+/* HEADER */
+.header {
+    background:#c0392b;
+    color:white;
+    text-align:center;
+    padding:20px;
 }
 
-.nav-links a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-    font-weight: bold;
+.header h1 {
+    margin:0;
+    font-size:28px;
 }
 
-/* HERO */
-.hero {
-    text-align: center;
-    padding: 120px 20px;
-    background: white;
+.header p {
+    margin:5px 0 0;
 }
 
-.hero h2 {
-    font-size: 48px;
-    margin-bottom: 10px;
+/* CONTAINER */
+.container {
+    max-width:800px;
+    margin:40px auto;
+    background:white;
+    padding:30px;
+    border-radius:12px;
 }
 
-.hero p {
-    font-size: 20px;
-    color: #666;
+/* INPUTS */
+input, select, textarea {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border-radius:6px;
+    border:1px solid #ccc;
 }
 
+label {
+    font-weight:bold;
+    margin-top:15px;
+    display:block;
+}
+
+/* BUTTON */
 .btn {
-    background: #c0392b;
-    color: white;
-    padding: 14px 25px;
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* MENU */
-.menu {
-    display: none;
-    padding: 40px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.category h3 {
-    color: #c0392b;
-}
-
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    background: white;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 6px;
-}
-
-.controls button {
-    margin: 0 3px;
-}
-
-/* CART */
-.cart {
-    margin-top: 30px;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* STORY */
-.story {
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    margin-top: 40px;
-    border-radius: 10px;
-}
-
-.story h2 {
-    text-align: center;
-    color: #c0392b;
+    background:#c0392b;
+    color:white;
+    padding:14px;
+    border:none;
+    border-radius:8px;
+    margin-top:20px;
+    cursor:pointer;
+    width:100%;
+    font-size:16px;
 }
 
 /* FOOTER */
 .footer {
-    text-align: center;
-    background: #222;
-    color: #aaa;
-    padding: 20px;
+    text-align:center;
+    padding:20px;
+    color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<div class="navbar">
-    <div>
-        <strong>Home Spice Catering</strong><br>
-        <small>Powered by Trina’s Cloud Kitchen</small>
-    </div>
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#story">Our Story</a>
-        <a href="#event">Event Catering</a>
-    </div>
+<!-- HEADER -->
+<div class="header">
+    <h1>Home Spice Catering</h1>
+    <p>Powered by Trina’s Cloud Kitchen</p>
 </div>
 
-<!-- HERO -->
-<div class="hero">
-    <h2>Authentic Homemade Indian & Bangladeshi Food</h2>
-    <p>Proper home cooking — made with care</p>
-    <button class="btn" onclick="showMenu()">Order Now</button>
-</div>
+<!-- FORM -->
+<div class="container">
 
-<!-- MENU -->
-<div id="menu" class="menu">
+<h2>Event Catering Booking</h2>
+<p>Let us cater your special event with authentic homemade food.</p>
 
-    <div class="category">
-        <h3>Rice & Bowl Meals</h3>
+<label>Name</label>
+<input id="name">
 
-        <div class="menu-item">
-            Chicken Biryani (£9.99)
-            <div class="controls">
-                <button onclick="changeQty('Chicken Biryani',9.99,-1)">-</button>
-                <span id="Chicken Biryani">0</span>
-                <button onclick="changeQty('Chicken Biryani',9.99,1)">+</button>
-            </div>
-        </div>
+<label>Phone Number</label>
+<input id="phone">
 
-        <div class="menu-item">
-            Lamb Akhni (£10.99)
-            <div class="controls">
-                <button onclick="changeQty('Lamb Akhni',10.99,-1)">-</button>
-                <span id="Lamb Akhni">0</span>
-                <button onclick="changeQty('Lamb Akhni',10.99,1)">+</button>
-            </div>
-        </div>
-    </div>
+<label>Event Type</label>
+<select id="eventType">
+<option>Birthday</option>
+<option>Wedding</option>
+<option>Party</option>
+<option>Corporate</option>
+</select>
 
-    <div class="category">
-        <h3>Curries</h3>
+<label>Number of Guests</label>
+<input id="guests" type="number">
 
-        <div class="menu-item">
-            Butter Chicken (£9.99)
-            <div class="controls">
-                <button onclick="changeQty('Butter Chicken',9.99,-1)">-</button>
-                <span id="Butter Chicken">0</span>
-                <button onclick="changeQty('Butter Chicken',9.99,1)">+</button>
-            </div>
-        </div>
-    </div>
+<label>Event Address</label>
+<input id="address">
 
-    <div class="category">
-        <h3>Add-ons</h3>
+<label>Distance (miles)</label>
+<input id="miles" oninput="calcDelivery()">
 
-        <div class="menu-item">
-            Gulab Jamun (£2.99)
-            <div class="controls">
-                <button onclick="changeQty('Gulab Jamun',2.99,-1)">-</button>
-                <span id="Gulab Jamun">0</span>
-                <button onclick="changeQty('Gulab Jamun',2.99,1)">+</button>
-            </div>
-        </div>
-    </div>
+<p>Delivery Fee: £<span id="deliveryFee">0</span></p>
 
-    <!-- CART -->
-    <div class="cart">
-        <h3>Your Order</h3>
-        <ul id="cartList"></ul>
-        <p><strong>Total: £<span id="total">0</span></strong></p>
+<label>Event Date</label>
+<input type="date" id="date">
 
-        <input id="address" placeholder="Enter address" style="width:100%;padding:10px">
+<label>Event Time</label>
+<select id="time">
+<option value="">Select Time</option>
+<option>12:00</option>
+<option>14:00</option>
+<option>18:00</option>
+<option>20:00</option>
+</select>
 
-        <br><br>
-        <button class="btn" onclick="sendWhatsApp()">Send via WhatsApp</button>
-    </div>
+<label>Additional Notes</label>
+<textarea id="notes"></textarea>
 
-</div>
+<button class="btn" onclick="sendBooking()">Send Booking via WhatsApp</button>
 
-<!-- STORY -->
-<div id="story" class="story">
-    <h2>Our Story</h2>
-    <p>For Ms Trina, cooking has always been about care and connection...</p>
-</div>
-
-<!-- EVENT -->
-<div id="event" class="story">
-    <h2>Event Catering</h2>
-    <p>Planning an event? Let us handle the food.</p>
-    <button class="btn" onclick="alert('WhatsApp us for bookings!')">Book Now</button>
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
-    <p>Home Spice Catering</p>
-    <p>Powered by Trina’s Cloud Kitchen</p>
+<p>© Home Spice Catering</p>
 </div>
 
 <script>
-let cart = {};
+let deliveryFee = 0;
 
-function showMenu() {
-    document.getElementById("menu").style.display = "block";
-    window.scrollTo({top: document.getElementById("menu").offsetTop, behavior: 'smooth'});
+/* DELIVERY */
+function calcDelivery(){
+    let miles = parseFloat(document.getElementById("miles").value) || 0;
+    deliveryFee = miles * 1.5;
+    document.getElementById("deliveryFee").innerText = deliveryFee.toFixed(2);
 }
 
-function changeQty(name, price, delta) {
-    if(!cart[name]) cart[name] = {qty:0, price:price};
+/* TIME VALIDATION */
+function validTime(){
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
 
-    cart[name].qty += delta;
+    if(!date || !time) return false;
 
-    if(cart[name].qty <= 0) delete cart[name];
+    let now = new Date();
+    let selected = new Date(date + "T" + time);
 
-    updateDisplay(name);
-    updateCart();
+    let diff = (selected - now) / 1000 / 60 / 60;
+
+    return diff >= 3;
 }
 
-function updateDisplay(name) {
-    let el = document.getElementById(name);
-    if(el) el.innerText = cart[name] ? cart[name].qty : 0;
-}
+/* SEND WHATSAPP */
+function sendBooking(){
 
-function updateCart() {
-    let list = document.getElementById("cartList");
-    list.innerHTML = "";
-    let total = 0;
-
-    for(let item in cart){
-        let li = document.createElement("li");
-        let cost = cart[item].qty * cart[item].price;
-        total += cost;
-
-        li.innerHTML = `${item} x${cart[item].qty} - £${cost.toFixed(2)}
-        <button onclick="removeItem('${item}')">❌</button>`;
-        list.appendChild(li);
+    if(!validTime()){
+        alert("Minimum 3 hours notice required");
+        return;
     }
 
-    document.getElementById("total").innerText = total.toFixed(2);
-}
-
-function removeItem(name){
-    delete cart[name];
-    document.getElementById(name).innerText = 0;
-    updateCart();
-}
-
-function sendWhatsApp(){
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let type = document.getElementById("eventType").value;
+    let guests = document.getElementById("guests").value;
     let address = document.getElementById("address").value;
-    let message = "Order:\n";
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+    let notes = document.getElementById("notes").value;
 
-    let total = 0;
+    let message = "📅 Event Catering Booking\n\n";
 
-    for(let item in cart){
-        let cost = cart[item].qty * cart[item].price;
-        total += cost;
-        message += `${item} x${cart[item].qty} - £${cost.toFixed(2)}\n`;
+    message += "Name: " + name + "\n";
+    message += "Phone: " + phone + "\n";
+    message += "Event: " + type + "\n";
+    message += "Guests: " + guests + "\n";
+    message += "Address: " + address + "\n";
+
+    message += "\nDate: " + date + "\n";
+    message += "Time: " + time + "\n";
+
+    message += "\nDelivery Fee: £" + deliveryFee.toFixed(2);
+
+    if(notes){
+        message += "\nNotes: " + notes;
     }
 
-    message += `\nTotal: £${total.toFixed(2)}\nAddress: ${address}`;
+    let url = "https://wa.me/441726806556?text=" + encodeURIComponent(message);
 
-    window.open("https://wa.me/441726806556?text=" + encodeURIComponent(message));
+    window.open(url, "_blank");
 }
 </script>
 
