@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Catering - Home Spice Catering</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #0f0f0f;
+    color: #f5f5f5;
+}
+
+header {
+    background: linear-gradient(135deg, #1a1a1a, #bfa14a);
+    padding: 25px;
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.section {
+    background: #1c1c1c;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #2a2a2a;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #bfa14a;
+    color: black;
+    border: none;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.back {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back a {
+    color: #bfa14a;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #aaa;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Event Catering</h1>
+    <p>Home Spice Catering • St Austell</p>
+</header>
+
+<div class="container">
+
+    <div class="section">
+        <h2>Private Catering Services</h2>
+        <p>
+            We provide authentic homemade Indian food for birthdays, house parties,
+            family gatherings and special occasions.
+        </p>
+
+        <ul>
+            <li>✔ Fresh cooking at your home</li>
+            <li>✔ Customised menu options</li>
+            <li>✔ Small & medium events</li>
+            <li>✔ Authentic home-style flavours</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Request a Booking</h2>
+
+        <input id="name" placeholder="Your Name">
+        <input id="phone" placeholder="Phone Number">
+        <input id="date" placeholder="Event Date">
+        <input id="location" placeholder="Event Location">
+
+        <textarea id="details" rows="4" placeholder="Tell us about your event (number of guests, menu ideas etc)"></textarea>
+
+        <button onclick="sendBooking()">Send Request on WhatsApp</button>
+    </div>
+
+    <div class="back">
+        <a href="index.html">← Back to Menu</a>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Home Spice Catering</p>
+</footer>
+
+<script>
+function sendBooking(){
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let date = document.getElementById("date").value;
+    let location = document.getElementById("location").value;
+    let details = document.getElementById("details").value;
+
+    let message =
+    "Event Catering Request\\n\\n" +
+    "Name: " + name + "\\n" +
+    "Phone: " + phone + "\\n" +
+    "Date: " + date + "\\n" +
+    "Location: " + location + "\\n\\n" +
+    "Details: " + details;
+
+    let businessPhone = "44XXXXXXXXXX"; // PUT YOUR NUMBER
+
+    let url = "https://wa.me/" + businessPhone + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
