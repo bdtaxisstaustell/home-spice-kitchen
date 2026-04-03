@@ -10,7 +10,6 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #f2f8fb;
-    color: #222;
 }
 
 /* HEADER */
@@ -18,7 +17,6 @@ header {
     background: #e6f4fb;
     padding: 20px;
     text-align: center;
-    border-bottom: 1px solid #cde7f5;
 }
 
 header h1 {
@@ -41,9 +39,14 @@ header h1 {
     padding: 20px;
 }
 
-.hero h2 {
-    font-size: 22px;
-    margin-bottom: 5px;
+.hero a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 18px;
+    background: #2a9fd6;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
 }
 
 /* BANNER */
@@ -149,10 +152,11 @@ Home Spice Catering is a home-based kitchen powered by <strong>Trina’s Kitchen
 
 <div class="hero">
     <h2>Fresh Homemade Food Delivered</h2>
+    <a href="event-catering.html">Book Event Catering</a>
 </div>
 
 <div class="banner">
-Minimum £40 • £1.5/mile • PL24/25/26 • Order 3hrs before • 9AM–9PM
+Minimum £40 • £1.5/mile • PL24/25/26 • 3hr notice • 9AM–9PM
 </div>
 
 <div class="urgency">
@@ -163,14 +167,11 @@ Minimum £40 • £1.5/mile • PL24/25/26 • Order 3hrs before • 9AM–9PM
 
 <h3>Menu</h3>
 
-<div class="card">
-Lamb Akhni (£14)
-<div class="qty">
-<button onclick="changeQty('akhni',-1)">-</button>
-<span id="akhni">0</span>
-<button onclick="changeQty('akhni',1)">+</button>
-</div>
-</div>
+<p style="font-size:13px; color:#555;">
+Menu changes daily based on fresh cooking
+</p>
+
+<!-- MENU ITEMS -->
 
 <div class="card">
 Chicken Biryani (£14)
@@ -182,11 +183,65 @@ Chicken Biryani (£14)
 </div>
 
 <div class="card">
+Lamb Akhni (£15)
+<div class="qty">
+<button onclick="changeQty('akhni',-1)">-</button>
+<span id="akhni">0</span>
+<button onclick="changeQty('akhni',1)">+</button>
+</div>
+</div>
+
+<div class="card">
 Chicken Curry (£15)
 <div class="qty">
-<button onclick="changeQty('curry',-1)">-</button>
-<span id="curry">0</span>
-<button onclick="changeQty('curry',1)">+</button>
+<button onclick="changeQty('chickenCurry',-1)">-</button>
+<span id="chickenCurry">0</span>
+<button onclick="changeQty('chickenCurry',1)">+</button>
+</div>
+</div>
+
+<div class="card">
+Beef Curry (£15)
+<div class="qty">
+<button onclick="changeQty('beef',-1)">-</button>
+<span id="beef">0</span>
+<button onclick="changeQty('beef',1)">+</button>
+</div>
+</div>
+
+<div class="card">
+Dal (£7)
+<div class="qty">
+<button onclick="changeQty('dal',-1)">-</button>
+<span id="dal">0</span>
+<button onclick="changeQty('dal',1)">+</button>
+</div>
+</div>
+
+<div class="card">
+Aloo Bhaji (£8)
+<div class="qty">
+<button onclick="changeQty('aloo',-1)">-</button>
+<span id="aloo">0</span>
+<button onclick="changeQty('aloo',1)">+</button>
+</div>
+</div>
+
+<div class="card">
+Gulab Jamun (£10)
+<div class="qty">
+<button onclick="changeQty('gulab',-1)">-</button>
+<span id="gulab">0</span>
+<button onclick="changeQty('gulab',1)">+</button>
+</div>
+</div>
+
+<div class="card">
+Rasmalai (£10)
+<div class="qty">
+<button onclick="changeQty('rasmalai',-1)">-</button>
+<span id="rasmalai">0</span>
+<button onclick="changeQty('rasmalai',1)">+</button>
 </div>
 </div>
 
@@ -223,12 +278,26 @@ Total: £<span id="total">0</span>
 </div>
 
 <script>
-let prices = {akhni:14,biryani:14,curry:15};
+let prices = {
+biryani:14,
+akhni:15,
+chickenCurry:15,
+beef:15,
+dal:7,
+aloo:8,
+gulab:10,
+rasmalai:10
+};
 
 let itemNames = {
-akhni:"Lamb Akhni",
 biryani:"Chicken Biryani",
-curry:"Chicken Curry"
+akhni:"Lamb Akhni",
+chickenCurry:"Chicken Curry",
+beef:"Beef Curry",
+dal:"Dal",
+aloo:"Aloo Bhaji",
+gulab:"Gulab Jamun",
+rasmalai:"Rasmalai"
 };
 
 function changeQty(id, change){
@@ -294,7 +363,7 @@ orderText+=itemNames[i]+" x"+qty+"\\n";
 }
 
 let msg=
-"Order - Home Spice Catering\\n\\n"+
+"🍛 Order - Home Spice Catering\\n\\n"+
 orderText+
 "\\nTotal: £"+total+
 "\\n\\nName: "+name+
