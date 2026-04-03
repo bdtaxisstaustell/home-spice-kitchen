@@ -10,7 +10,7 @@
 /* GLOBAL */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     background: #b0e0e6;
 }
 
@@ -19,17 +19,8 @@ header {
     background: #020617;
     padding: 25px;
     text-align: center;
-}
-
-header h1 {
     color: #38bdf8;
-    font-size: 36px;
-    margin: 0;
-}
-
-.sub {
-    color: #cbd5f5;
-    font-size: 16px;
+    font-size: 34px;
 }
 
 /* TOP BAR */
@@ -42,19 +33,19 @@ header h1 {
     font-weight: bold;
 }
 
-/* HERO BUTTONS */
+/* HERO */
 .hero {
     text-align: center;
     padding: 15px;
 }
 
 .hero a {
-    display: inline-block;
     margin: 6px;
-    padding: 12px 20px;
+    padding: 12px 18px;
+    display: inline-block;
     border-radius: 6px;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .btn-blue { background: #38bdf8; color: black; }
@@ -82,13 +73,16 @@ header h1 {
     margin-bottom: 12px;
 }
 
-.card-title {
+.card-top {
+    display: flex;
+    justify-content: space-between;
     font-size: 20px;
     font-weight: bold;
 }
 
 .card-desc {
-    font-size: 16px;
+    font-size: 15px;
+    margin-top: 5px;
 }
 
 /* QTY */
@@ -99,6 +93,7 @@ header h1 {
     color: white;
     border: none;
 }
+
 .qty span {
     margin: 0 10px;
     font-size: 18px;
@@ -108,14 +103,14 @@ header h1 {
 .btn {
     width: 100%;
     padding: 15px;
+    margin-top: 15px;
     background: #1e40af;
     color: white;
     border: none;
-    margin-top: 15px;
     font-size: 16px;
 }
 
-/* FORM */
+/* INPUT */
 input {
     width: 100%;
     padding: 12px;
@@ -126,33 +121,8 @@ input {
 .summary {
     background: white;
     padding: 15px;
+    border-radius: 10px;
     margin-top: 15px;
-    border-radius: 10px;
-}
-
-/* MODAL */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.7);
-}
-
-.modal-content {
-    background: white;
-    margin: 5% auto;
-    padding: 25px;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-.close {
-    float: right;
-    font-size: 22px;
-    cursor: pointer;
 }
 
 /* FOOTER */
@@ -168,10 +138,7 @@ input {
 
 <body>
 
-<header>
-<h1>Home Spice Catering</h1>
-<div class="sub">Powered by Trina’s Cloud Kitchen</div>
-</header>
+<header>Home Spice Catering</header>
 
 <div class="top-bar">
 ⏱ 3PM – 8PM • Sunday & Monday CLOSED • Delivery Only
@@ -179,7 +146,6 @@ input {
 
 <div class="hero">
 <a href="https://wa.me/441726806556?text=Event%20Catering%20Enquiry" class="btn-blue">Book Event Catering</a>
-<a href="#" onclick="openStory()" class="btn-yellow">Our Story</a>
 </div>
 
 <div class="container">
@@ -198,7 +164,7 @@ input {
 </div>
 
 <div id="summaryBox" class="summary" style="display:none;"></div>
-<button id="orderBtn" class="btn" style="display:none;" onclick="placeOrder()">Place Order</button>
+<button id="orderBtn" class="btn" style="display:none;" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
 
 <hr>
 
@@ -208,75 +174,32 @@ input {
 
 </div>
 
-<!-- STORY MODAL -->
-<div id="storyModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeStory()">&times;</span>
-
-<h3>Our Story — From Heart to Home</h3>
-
-<p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-<br><br>
-From a young age, she found joy in the kitchen. The sound of spices, the warmth of home cooking, and the smiles it brings inspired her journey.
-<br><br>
-For years, she dreamed of sharing authentic homemade Indian and Bangladeshi food.
-<br><br>
-Today, that dream is reality.
-<br><br>
-<strong>This is not restaurant food.</strong><br>
-This is food made with heart, tradition, and love — just like home.
-</p>
-
-</div>
-</div>
-
-<!-- TERMS -->
 <div class="footer">
 <h3>Terms & Conditions</h3>
 <p>
-• All items may contain any of the 14 major allergens. Please contact us before ordering if you have allergies.<br><br>
-• Management reserves the right to cancel any order.<br><br>
-• As this is a home-based kitchen, preparation time is required:<br>
-&nbsp;&nbsp;- Minimum 3 hours notice<br>
-&nbsp;&nbsp;- Desserts require 24 hours notice<br><br>
-• Delivery only. No collection available.
+• All items may contain allergens. Contact before ordering.<br><br>
+• Orders may be cancelled by management.<br><br>
+• Minimum 3 hours notice.<br>
+• Desserts require 24 hours.<br><br>
+• Delivery only.
 </p>
 </div>
 
 <script>
 
 let menuData = {
-"🍚 Rice Dishes":[
-{name:"Traditional Basmati Rice",price:3,desc:"Light fluffy basmati rice"},
-{name:"Home Style Pilau Rice",price:3.5,desc:"Fragrant spiced rice"}
+"Rice":[
+{name:"Basmati Rice",price:3,desc:"Fluffy basmati rice"},
+{name:"Pilau Rice",price:3.5,desc:"Spiced rice"}
 ],
-"🍗 Main Dishes":[
-{name:"Akhni Chicken",price:10,desc:"Chicken rice dish"},
-{name:"Lamb Tehari",price:11,desc:"Spiced lamb rice"},
-{name:"Murogh Roast",price:11,desc:"Roasted drumstick"},
-{name:"Lamb Rezala",price:11,desc:"Creamy lamb curry"},
-{name:"Aloo Bhuna",price:11,desc:"Thick curry with potatoes"},
-{name:"Fish Jhol",price:9,desc:"Light fish curry"},
-{name:"Dim Bhuna",price:9,desc:"Egg curry"}
+"Main":[
+{name:"Akhni Chicken",price:10,desc:"Chicken rice"},
+{name:"Lamb Tehari",price:11,desc:"Lamb rice"},
+{name:"Murogh Roast",price:11,desc:"Drumstick"},
+{name:"Lamb Rezala",price:11,desc:"Creamy curry"}
 ],
-"🥔 Vegetarian & Sides":[
-{name:"Aloo Bhajee",price:4,desc:"Fried potatoes"},
-{name:"Sobji Bhuna",price:7.5,desc:"Mixed veg"},
-{name:"Begun Bhaje",price:4,desc:"Fried aubergine"}
-],
-"🍮 Desserts":[
-{name:"Egg Pudding",price:5,desc:"Caramel pudding"},
-{name:"Gulab Jamun",price:10,desc:"Sweet dumplings"},
-{name:"Rasmalai",price:10,desc:"Milk dessert"},
-{name:"Birthday Cake",price:25,desc:"Custom cake"}
-],
-"🥟 Snacks":[
-{name:"Chicken Samosa",price:3,desc:"Crispy snack"},
-{name:"Peyaju",price:3,desc:"Onion fritter"},
-{name:"Spring Roll",price:3,desc:"Crunchy rolls"},
-{name:"Murogh Pastry",price:3,desc:"Chicken pastry"},
-{name:"Paratha",price:1.5,desc:"Flatbread"}
+"Desserts":[
+{name:"Gulab Jamun",price:10,desc:"Sweet dessert"}
 ]
 };
 
@@ -284,13 +207,19 @@ let cart = {};
 
 function loadMenu(){
 let html="";
+
 for(let cat in menuData){
 html+=`<div class="category-title">${cat}</div>`;
+
 menuData[cat].forEach(item=>{
 html+=`
 <div class="card">
-<div class="card-title">${item.name} (£${item.price})</div>
+<div class="card-top">
+<span>${item.name}</span>
+<span>£${item.price}</span>
+</div>
 <div class="card-desc">${item.desc}</div>
+
 <div class="qty">
 <button onclick="changeQty('${item.name}',-1)">-</button>
 <span id="${item.name}">0</span>
@@ -299,6 +228,7 @@ html+=`
 </div>`;
 });
 }
+
 document.getElementById("menu").innerHTML=html;
 }
 
@@ -333,59 +263,87 @@ if(m<=10) return 6;
 return 10;
 }
 
+let finalTotal=0;
+
 function generateSummary(){
+
 let miles=document.getElementById("miles").value;
 let food=calculateTotal();
 let delivery=deliveryFee(miles);
-let total=food+delivery;
+
+finalTotal=food+delivery;
 
 let html="<h3>Order Summary</h3>";
+
 for(let item in cart){
 if(cart[item]>0){
 html+=`${item} x ${cart[item]}<br>`;
 }
 }
-html+=`<hr>Food £${food}<br>Delivery £${delivery}<br><b>Total £${total}</b>`;
+
+html+=`<hr>
+Food: £${food}<br>
+Delivery: £${delivery}<br>
+<b>Total: £${finalTotal}</b>`;
 
 document.getElementById("summaryBox").innerHTML=html;
 document.getElementById("summaryBox").style.display="block";
 document.getElementById("orderBtn").style.display="block";
 }
 
-function placeOrder(){
+/* WHATSAPP AUTO MESSAGE */
+function sendWhatsApp(){
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let address=document.getElementById("address").value;
+
+let message = `New Order:%0A
+Name: ${name}%0A
+Phone: ${phone}%0A
+Address: ${address}%0A%0A
+Items:%0A`;
+
+for(let item in cart){
+if(cart[item]>0){
+message += `${item} x ${cart[item]}%0A`;
+}
+}
+
+message += `%0ATotal: £${finalTotal}`;
+
+window.open(`https://wa.me/441726806556?text=${message}`);
+
+/* SAVE ORDER */
 let order={
-name:document.getElementById("name").value,
-phone:document.getElementById("phone").value,
-address:document.getElementById("address").value,
-cart:cart,
-total:calculateTotal()
+name,phone,address,cart,total:finalTotal
 };
 
 let orders=JSON.parse(localStorage.getItem("orders")||"[]");
 orders.push(order);
 localStorage.setItem("orders",JSON.stringify(orders));
 
-alert("Order saved!");
 }
 
+/* DASHBOARD */
 function loadOrders(){
+
 let orders=JSON.parse(localStorage.getItem("orders")||"[]");
+
 let html="";
+
 orders.forEach((o,i)=>{
-html+=`<div class="card">
+html+=`
+<div class="card">
 <b>Order ${i+1}</b><br>
-${o.name}<br>${o.phone}<br>${o.address}<br>Total £${o.total}
+${o.name}<br>
+${o.phone}<br>
+${o.address}<br>
+Total: £${o.total}
 </div>`;
 });
+
 document.getElementById("orders").innerHTML=html;
-}
-
-function openStory(){
-document.getElementById("storyModal").style.display="block";
-}
-
-function closeStory(){
-document.getElementById("storyModal").style.display="none";
 }
 
 loadMenu();
