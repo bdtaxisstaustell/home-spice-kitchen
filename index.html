@@ -6,34 +6,126 @@
 <title>Home Spice Catering</title>
 
 <style>
+
+/* GLOBAL */
 body {margin:0;font-family:Arial;background:#B790D4;}
-header {background:#020617;padding:25px;text-align:center;color:#38bdf8;font-size:42px;font-weight:bold;}
+
+/* LAUNCH BANNER */
+#launchBanner {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#020617;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    z-index:9999;
+    padding:20px;
+}
+
+.banner-box {
+    max-width:600px;
+}
+
+.banner-box h1 {
+    font-size:28px;
+    margin-bottom:20px;
+}
+
+.banner-box p {
+    font-size:18px;
+    line-height:1.6;
+}
+
+.banner-box button {
+    margin-top:25px;
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    background:#38bdf8;
+    color:black;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* HEADER */
+header {
+    background:#020617;
+    padding:25px;
+    text-align:center;
+    color:#38bdf8;
+    font-size:42px;
+    font-weight:bold;
+}
+
 .sub {color:#cbd5f5;font-size:16px;}
-.top-bar {background:#020617;color:white;text-align:center;padding:12px;font-weight:bold;font-size:18px;}
+
+.top-bar {
+    background:#020617;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:bold;
+    font-size:18px;
+}
+
 .hero{text-align:center;padding:12px;}
 .hero a{margin:6px;padding:12px 18px;border-radius:6px;text-decoration:none;font-weight:bold;}
 .btn-blue{background:#38bdf8;color:black;}
 .btn-yellow{background:#facc15;color:black;}
+
 .container{max-width:900px;margin:auto;padding:15px;}
+
 .category{font-size:30px;font-weight:bold;margin-top:25px;}
+
 .card{background:white;padding:15px;border-radius:10px;margin:12px 0;}
 .card-top{display:flex;justify-content:space-between;font-size:22px;font-weight:bold;}
 .desc{font-size:17px;margin-top:6px;}
+
 .qty{margin-top:10px;}
 .qty button{width:32px;height:32px;background:#1e40af;color:white;border:none;}
 .qty span{margin:0 12px;font-size:18px;}
+
 .cart{background:white;padding:15px;border-radius:10px;margin-top:20px;}
 .total{font-size:24px;font-weight:bold;margin-top:10px;}
+
 input{width:100%;padding:12px;margin-top:10px;}
+
 .btn{width:100%;padding:14px;background:#1e40af;color:white;border:none;margin-top:12px;font-size:16px;}
+
 .modal{display:none;position:fixed;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;}
 .modal-content{background:white;margin:8% auto;padding:20px;width:85%;max-width:600px;border-radius:10px;}
 .close{float:right;cursor:pointer;font-size:22px;}
+
 .footer{background:#020617;color:white;padding:20px;font-size:14px;}
+
 </style>
 </head>
 
 <body>
+
+<!-- 🔥 LAUNCH BANNER -->
+<div id="launchBanner">
+<div class="banner-box">
+<h1>✨ A New Standard of Dining Arrives ✨</h1>
+
+<p>
+We are delighted to announce the launch of <b>Luxury Home Spice Catering</b>, a cloud kitchen redefining indulgence in St Austell.
+<br><br>
+From the comfort of your home, experience elevated flavours, crafted with precision and passion.
+<br><br>
+<b>Opening 15th April</b>
+<br><br>
+An exclusive journey of taste awaits.
+</p>
+
+<button onclick="enterSite()">Enter Site</button>
+</div>
+</div>
 
 <header>
 Home Spice Catering
@@ -69,38 +161,12 @@ Home Spice Catering
 </div>
 </div>
 
-<!-- STORY -->
-<div id="storyModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeStory()">✖</span>
-<h3>Our Story — From Heart to Home</h3>
-<p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-<br><br>
-From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.
-<br><br>
-For the past eight years, she held onto a dream — to share real homemade Indian and Bangladeshi food.
-<br><br>
-Today, that dream is reality.
-<br><br>
-<strong>This is not restaurant food.</strong><br>
-This is food made with care, tradition, and heart — just like home.
-</p>
-</div>
-</div>
-
-<div class="footer">
-<h3>Terms & Conditions</h3>
-<p>
-• All items may contain allergens<br>
-• Minimum order £10<br>
-• 3 hours notice required<br>
-• Desserts 24h notice<br>
-• Delivery only
-</p>
-</div>
-
 <script>
+
+function enterSite(){
+document.getElementById("launchBanner").style.display="none";
+}
+
 const MIN_ORDER = 10;
 
 function deliveryFee(m){
@@ -113,15 +179,7 @@ return 10;
 
 let menu = [
 {cat:"🍚 Rice Dishes",name:"Traditional Basmati Rice",price:3,desc:"Light, fluffy long-grain basmati rice, perfectly steamed for a clean, aromatic finish."},
-{cat:"🍚 Rice Dishes",name:"Home Style Pilau Rice",price:3.5,desc:"Fragrant basmati rice cooked with mild spices, whole garam masala, and a hint of warmth."},
-
-{cat:"🍗 Main Dishes",name:"Akhni Chicken",price:10,desc:"Slow-cooked chicken with aromatic spices and rice, a comforting one-pot dish full of flavour."},
-{cat:"🍗 Main Dishes",name:"Lamb Tehari",price:11,desc:"Spiced rice cooked with tender lamb pieces, rich in traditional South Asian flavours."},
-{cat:"🍗 Main Dishes",name:"Indian Home Style Murogh Roast (Drumstick)",price:11,desc:"Juicy chicken drumstick marinated and roasted in homestyle spices, slightly smoky and rich."},
-{cat:"🍗 Main Dishes",name:"Lamb Rezala",price:11,desc:"A creamy, mildly spiced lamb curry with yoghurt, nuts, and a delicate aromatic gravy."},
-{cat:"🍗 Main Dishes",name:"Traditional Lamb/Chicken Thick Aloo Bhuna",price:11,desc:"Slow-cooked meat with potatoes in a thick, rich bhuna-style gravy packed with bold spices."},
-{cat:"🍗 Main Dishes",name:"Fish Jhol",price:9,desc:"Light and flavourful fish curry in a thin, spiced broth—comforting and traditional."},
-{cat:"🍗 Main Dishes",name:"Dim Bhuna (Egg)",price:9,desc:"Boiled eggs cooked in a thick, spiced onion-tomato gravy, rich and satisfying."}
+{cat:"🍚 Rice Dishes",name:"Home Style Pilau Rice",price:3.5,desc:"Fragrant basmati rice cooked with mild spices, whole garam masala, and a hint of warmth."}
 ];
 
 let cart={};
@@ -130,7 +188,8 @@ function loadMenu(){
 let html="",current="";
 menu.forEach(item=>{
 if(item.cat!==current){current=item.cat;html+=`<div class="category">${item.cat}</div>`;}
-html+=`<div class="card">
+html+=`
+<div class="card">
 <div class="card-top"><span>${item.name}</span><span>£${item.price}</span></div>
 <div class="desc">${item.desc}</div>
 <div class="qty">
@@ -187,10 +246,8 @@ msg+=`%0ATotal £${total}`;
 window.open(`https://wa.me/441726806556?text=${msg}`);
 }
 
-function openStory(){document.getElementById("storyModal").style.display="block";}
-function closeStory(){document.getElementById("storyModal").style.display="none";}
-
 loadMenu();
+
 </script>
 
 </body>
