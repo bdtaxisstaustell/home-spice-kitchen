@@ -13,48 +13,41 @@ body {
     color: #f5f5f5;
 }
 
-/* HEADER */
 header {
     background: linear-gradient(135deg, #1a1a1a, #bfa14a);
     padding: 25px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-    letter-spacing: 1px;
-}
-
-/* HERO */
 .hero {
     text-align: center;
     padding: 30px 20px;
 }
 
-/* SECTION */
+.hero a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 18px;
+    background: #bfa14a;
+    color: black;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .container {
     padding: 20px;
     max-width: 600px;
     margin: auto;
 }
 
-/* MENU LIST */
 .card {
     background: #1c1c1c;
     border-radius: 12px;
     padding: 15px;
     margin-bottom: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-.card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-/* QUANTITY */
 .qty {
     display: flex;
     align-items: center;
@@ -74,19 +67,13 @@ header h1 {
 
 .qty span {
     margin: 0 12px;
-    font-size: 16px;
 }
 
-/* FORM */
 .form-box {
     background: #1c1c1c;
     padding: 20px;
     border-radius: 12px;
     margin-top: 30px;
-}
-
-.form-box h2 {
-    margin-top: 0;
 }
 
 input, select {
@@ -100,7 +87,6 @@ input, select {
     color: white;
 }
 
-/* CART */
 .cart {
     position: fixed;
     bottom: 0;
@@ -123,7 +109,6 @@ input, select {
     cursor: pointer;
 }
 
-/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
@@ -143,15 +128,14 @@ footer {
 <div class="hero">
     <h2>Premium Homemade Indian Food</h2>
     <p>Authentic flavours delivered or cooked at your event</p>
+    <a href="event-catering.html">Book Event Catering</a>
 </div>
 
 <div class="container">
 
     <h2>Menu</h2>
 
-    <!-- ITEM -->
     <div class="card">
-        <img src="https://via.placeholder.com/400x250">
         <h3>Lamb Akhni (£14)</h3>
         <p>Fragrant rice with tender lamb.</p>
         <div class="qty">
@@ -162,7 +146,6 @@ footer {
     </div>
 
     <div class="card">
-        <img src="https://via.placeholder.com/400x250">
         <h3>Chicken Biryani (£14)</h3>
         <p>Classic spiced rice with chicken.</p>
         <div class="qty">
@@ -173,7 +156,6 @@ footer {
     </div>
 
     <div class="card">
-        <img src="https://via.placeholder.com/400x250">
         <h3>Gulab Jamun (£10)</h3>
         <p>Sweet syrup dumplings.</p>
         <div class="qty">
@@ -184,7 +166,6 @@ footer {
     </div>
 
     <div class="card">
-        <img src="https://via.placeholder.com/400x250">
         <h3>Rasmalai (£10)</h3>
         <p>Soft milk dessert.</p>
         <div class="qty">
@@ -195,7 +176,6 @@ footer {
     </div>
 
     <div class="card">
-        <img src="https://via.placeholder.com/400x250">
         <h3>Chicken Curry (£15)</h3>
         <p>Authentic home-style curry.</p>
         <div class="qty">
@@ -205,7 +185,6 @@ footer {
         </div>
     </div>
 
-    <!-- FORM -->
     <div class="form-box">
         <h2>Customer Details</h2>
 
@@ -219,11 +198,6 @@ footer {
             <option>Within 1 Hour</option>
             <option>Within 2 Hours</option>
         </select>
-    </div>
-
-    <div class="form-box">
-        <h2>Event Catering</h2>
-        <p>We cook fresh Indian food at your home for parties, birthdays and events.</p>
     </div>
 
 </div>
@@ -249,10 +223,8 @@ let prices = {
 function changeQty(id, change) {
     let el = document.getElementById(id);
     let val = parseInt(el.innerText);
-
     val += change;
     if(val < 0) val = 0;
-
     el.innerText = val;
     updateTotal();
 }
@@ -295,7 +267,7 @@ function checkout(){
     "\\nAddress: " + address +
     "\\nDelivery Time: " + time;
 
-    let businessPhone = "44XXXXXXXXXX"; // PUT YOUR NUMBER
+    let businessPhone = "44XXXXXXXXXX";
 
     let url = "https://wa.me/" + businessPhone + "?text=" + encodeURIComponent(message);
 
