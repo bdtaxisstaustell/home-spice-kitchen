@@ -10,80 +10,77 @@
 /* BASE */
 body {
     margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: #0f172a;
-    color: white;
+    font-family: Arial, sans-serif;
+    background: #f8f5f0;
+    color: #222;
 }
 
-/* HERO */
-.hero {
-    padding: 50px 20px;
+/* HEADER */
+.header {
+    background: white;
+    padding: 25px 20px;
     text-align: center;
-    background: linear-gradient(135deg, #020617, #1e293b);
+    border-bottom: 1px solid #eee;
 }
 
-.hero h1 {
-    font-size: 42px;
+.header h1 {
     margin: 0;
-    color: #38bdf8;
+    color: #b45309;
 }
 
-.hero p {
-    margin-top: 10px;
-    color: #cbd5f5;
+.tagline {
+    margin-top: 5px;
+    color: #555;
+}
+
+.powered {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* INFO BAR */
+.info-bar {
+    background: #fff7ed;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+/* SECTION */
+.section {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+.section h2 {
+    color: #b45309;
 }
 
 /* STORY */
 .story {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: #020617;
-    border-radius: 14px;
     line-height: 1.7;
-}
-
-.story h2 {
-    color: #38bdf8;
-}
-
-/* MENU */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    padding-bottom: 120px;
-}
-
-.section-title {
-    font-size: 26px;
-    margin-bottom: 20px;
 }
 
 /* CARD */
 .card {
-    background: #020617;
-    border: 1px solid #1e293b;
-    border-radius: 14px;
+    background: white;
     padding: 18px;
-    margin-bottom: 15px;
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    border-color: #38bdf8;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
 }
 
 .card-top {
     display: flex;
     justify-content: space-between;
-    font-size: 18px;
-    font-weight: 600;
+    font-weight: bold;
 }
 
 .desc {
-    color: #94a3b8;
+    color: #555;
     margin: 8px 0;
 }
 
@@ -94,67 +91,43 @@ body {
 }
 
 .qty button {
-    width: 34px;
-    height: 34px;
-    background: #38bdf8;
+    width: 32px;
+    height: 32px;
+    background: #b45309;
     border: none;
-    color: black;
-    font-weight: bold;
-    border-radius: 6px;
+    color: white;
 }
 
 .qty span {
     margin: 0 10px;
 }
 
-/* FLOATING CART */
-.cart-box {
+/* CART */
+.cart {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 300px;
-    background: rgba(2,6,23,0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid #1e293b;
-    border-radius: 14px;
-    padding: 20px;
-}
-
-.cart-box h3 {
-    margin-top: 0;
-}
-
-.cart-items {
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.total {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* BUTTON */
-.checkout-btn {
+    bottom: 0;
     width: 100%;
-    padding: 14px;
-    margin-top: 10px;
-    border: none;
-    background: #38bdf8;
-    color: black;
-    font-weight: bold;
-    border-radius: 8px;
-    font-size: 16px;
+    background: white;
+    border-top: 1px solid #eee;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* MOBILE */
-@media(max-width: 768px){
-    .cart-box {
-        width: 100%;
-        right: 0;
-        bottom: 0;
-        border-radius: 0;
-    }
+.cart button {
+    background: #b45309;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+}
+
+/* CONTACT */
+.contact {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #eee;
 }
 
 </style>
@@ -162,37 +135,43 @@ body {
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
+<!-- HEADER -->
+<div class="header">
 <h1>Home Spice Catering</h1>
-<p>Real homemade Indian & Bangladeshi food — cooked with heart</p>
+<div class="tagline">Real homemade Indian & Bangladeshi food</div>
+<div class="powered">Powered by Trina’s Cloud Kitchen</div>
+</div>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+🚚 Delivery Only • ⏱ Minimum 3 Hours Notice • 📦 Limited Daily Slots • 🕘 Open 9AM – 9PM
 </div>
 
 <!-- STORY -->
-<div class="story">
+<div class="section story">
 <h2>Our Story — From Heart to Home</h2>
+
 <p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.<br><br>
-
-From a young age, she found joy in the kitchen — the sound of spices, the warmth of meals, the smiles that followed.<br><br>
-
-For eight years, she carried a dream — to share real homemade food beyond her home.<br><br>
-
-Today, that dream is real.<br><br>
-
+For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
+<br><br>
+From a young age, she found joy in the kitchen. The warmth of a home-cooked meal and the smiles that followed became her passion.
+<br><br>
+For eight years, she carried a dream — to share real homemade Indian and Bangladeshi food beyond her home.
+<br><br>
+Today, that dream has come to life.
+<br><br>
 <strong>This is not restaurant food.</strong><br>
-This is food made with tradition, with care, and with heart.
+This is food made with care, tradition, and heart — just like home.
 </p>
 </div>
 
 <!-- MENU -->
-<div class="container">
-
-<div class="section-title">Menu</div>
+<div class="section">
+<h2>Menu</h2>
 
 <div class="card">
 <div class="card-top"><span>Chicken Biryani</span><span>£14</span></div>
-<div class="desc">Fragrant basmati rice with spiced chicken.</div>
+<div class="desc">Fragrant basmati rice with tender spiced chicken.</div>
 <div class="qty">
 <button onclick="changeQty('biryani',-1)">-</button>
 <span id="biryani">0</span>
@@ -202,7 +181,7 @@ This is food made with tradition, with care, and with heart.
 
 <div class="card">
 <div class="card-top"><span>Lamb Akhni</span><span>£15</span></div>
-<div class="desc">Slow-cooked lamb rice dish.</div>
+<div class="desc">Aromatic rice dish with slow-cooked lamb.</div>
 <div class="qty">
 <button onclick="changeQty('akhni',-1)">-</button>
 <span id="akhni">0</span>
@@ -212,7 +191,7 @@ This is food made with tradition, with care, and with heart.
 
 <div class="card">
 <div class="card-top"><span>Chicken Curry</span><span>£15</span></div>
-<div class="desc">Classic homemade curry.</div>
+<div class="desc">Classic home-style chicken curry.</div>
 <div class="qty">
 <button onclick="changeQty('chickenCurry',-1)">-</button>
 <span id="chickenCurry">0</span>
@@ -222,46 +201,76 @@ This is food made with tradition, with care, and with heart.
 
 </div>
 
-<!-- FLOATING CART -->
-<div class="cart-box">
-<h3>Your Order</h3>
-<div id="cartItems" class="cart-items">No items yet</div>
-<div class="total">£<span id="total">0</span></div>
-<button class="checkout-btn" onclick="checkout()">Confirm Order</button>
+<!-- EVENT CATERING -->
+<div class="section">
+<h2>Event Catering</h2>
+
+<p>
+We cater for birthdays, family events, gatherings, and special occasions.
+</p>
+
+<ul>
+<li>Custom menus available</li>
+<li>Advance booking required</li>
+<li>Large portions for groups</li>
+</ul>
+
+<p>
+Contact us to plan your event.
+</p>
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+<h2>Contact & Orders</h2>
+
+<div class="contact">
+<p><strong>Phone:</strong> 01726 806556</p>
+<p><strong>Email:</strong> info@mevagisseyspice.com</p>
+<p><strong>Opening Hours:</strong> 9AM – 9PM</p>
+<p><strong>Delivery:</strong> Delivery only (no dine-in)</p>
+<p><strong>Notice:</strong> Minimum 3 hours advance order required</p>
+</div>
+
+</div>
+
+<!-- CART -->
+<div class="cart">
+<div>Total: £<span id="total">0</span></div>
+<button onclick="checkout()">Confirm Order</button>
 </div>
 
 <script>
 
-let prices = {biryani:14, akhni:15, chickenCurry:15};
-let names = {biryani:"Chicken Biryani", akhni:"Lamb Akhni", chickenCurry:"Chicken Curry"};
+let prices = {
+biryani:14,
+akhni:15,
+chickenCurry:15
+};
 
 function changeQty(id, change){
 let el=document.getElementById(id);
 let val=parseInt(el.innerText)+change;
 if(val<0) val=0;
 el.innerText=val;
-updateCart();
+updateTotal();
 }
 
-function updateCart(){
+function updateTotal(){
 let total=0;
-let text="";
-
 for(let i in prices){
 let qty=parseInt(document.getElementById(i).innerText);
-if(qty>0){
-text += names[i]+" x"+qty+"<br>";
+total+=qty*prices[i];
 }
-total += qty*prices[i];
-}
-
-document.getElementById("cartItems").innerHTML = text || "No items yet";
-document.getElementById("total").innerText = total;
+document.getElementById("total").innerText=total;
 }
 
 function checkout(){
 let total=parseInt(document.getElementById("total").innerText);
-if(total<40){ alert("Minimum £40"); return; }
+if(total<40){
+alert("Minimum order £40");
+return;
+}
 
 window.open("https://wa.me/441726806556?text=Order Total £"+total);
 }
