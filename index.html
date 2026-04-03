@@ -10,7 +10,6 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #f8f5f0;
-    color: #333;
 }
 
 /* NAVBAR */
@@ -23,15 +22,13 @@ body {
     color: white;
 }
 
-.navbar h1 {
-    margin: 0;
+.brand {
+    display: flex;
+    flex-direction: column;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: bold;
+.brand small {
+    font-size: 12px;
 }
 
 /* HERO */
@@ -41,86 +38,56 @@ body {
     background: white;
 }
 
-.hero h2 {
-    font-size: 36px;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #666;
-}
-
 .btn {
-    display: inline-block;
-    margin-top: 20px;
     background-color: #c0392b;
     color: white;
     padding: 12px 22px;
     text-decoration: none;
     border-radius: 6px;
+    cursor: pointer;
 }
 
 /* MENU */
 .menu {
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.menu h2 {
-    color: #c0392b;
-    margin-bottom: 30px;
-}
-
-.menu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    max-width: 1000px;
+    padding: 40px 20px;
+    max-width: 800px;
     margin: auto;
 }
 
-.menu-card {
+.category {
+    margin-top: 30px;
+}
+
+.category h3 {
+    color: #c0392b;
+}
+
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.menu-item button {
+    margin-left: 10px;
+}
+
+/* CART */
+.cart {
     background: white;
     padding: 20px;
+    margin-top: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.menu-card h3 {
-    margin-top: 0;
-}
-
-.price {
-    color: #c0392b;
-    font-weight: bold;
-}
-
-/* STORY */
-.story-container {
-    max-width: 800px;
-    margin: 60px auto;
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    line-height: 1.7;
-}
-
-.story-title {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #c0392b;
-    text-align: center;
-}
-
-/* FOOTER */
 .footer {
-    background-color: #222;
+    background: #222;
     color: #aaa;
     text-align: center;
-    padding: 25px;
-    font-size: 14px;
+    padding: 20px;
 }
 </style>
 </head>
@@ -129,11 +96,9 @@ body {
 
 <!-- NAVBAR -->
 <div class="navbar">
-    <h1>Home Spice Catering</h1>
-    <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#story">Our Story</a>
+    <div class="brand">
+        <strong>Home Spice Catering</strong>
+        <small>Powered by Trina’s Cloud Kitchen</small>
     </div>
 </div>
 
@@ -141,63 +106,144 @@ body {
 <div class="hero">
     <h2>Real Homemade Indian & Bangladeshi Food</h2>
     <p>Not restaurant style — just proper home cooking</p>
-    <a href="#" class="btn">Order Now</a>
+    <a href="#menu" class="btn">Order Now</a>
 </div>
 
 <!-- MENU -->
 <div id="menu" class="menu">
-    <h2>Our Food</h2>
 
-    <div class="menu-items">
-        <div class="menu-card">
-            <h3>Chicken Curry</h3>
-            <p>Traditional homemade chicken curry with rich spices</p>
-            <p class="price">£8.99</p>
+    <div class="category">
+        <h3>Rice & Bowl Meals</h3>
+
+        <div class="menu-item">
+            Chicken Biryani – £9.99
+            <button onclick="addToCart('Chicken Biryani',9.99)">Add</button>
         </div>
 
-        <div class="menu-card">
-            <h3>Beef Bhuna</h3>
-            <p>Slow-cooked beef with authentic Bangladeshi spices</p>
-            <p class="price">£9.99</p>
+        <div class="menu-item">
+            Lamb Akhni – £10.99
+            <button onclick="addToCart('Lamb Akhni',10.99)">Add</button>
         </div>
 
-        <div class="menu-card">
-            <h3>Vegetable Daal</h3>
-            <p>Comforting lentils cooked the traditional way</p>
-            <p class="price">£6.99</p>
+        <div class="menu-item">
+            Rajma Chawal – £6.99
+            <button onclick="addToCart('Rajma Chawal',6.99)">Add</button>
         </div>
 
-        <div class="menu-card">
-            <h3>Chicken Biryani</h3>
-            <p>Fragrant rice with spiced chicken, cooked at home style</p>
-            <p class="price">£8.99</p>
+        <div class="menu-item">
+            Chole Chawal – £6.99
+            <button onclick="addToCart('Chole Chawal',6.99)">Add</button>
         </div>
     </div>
-</div>
 
-<!-- STORY -->
-<div id="story" class="story-container">
-    <div class="story-title">Our Story — From Heart to Home</div>
+    <div class="category">
+        <h3>Curries</h3>
 
-    <p>For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.</p>
+        <div class="menu-item">
+            Butter Chicken – £9.99
+            <button onclick="addToCart('Butter Chicken',9.99)">Add</button>
+        </div>
 
-    <p>From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.</p>
+        <div class="menu-item">
+            Chicken Curry – £8.99
+            <button onclick="addToCart('Chicken Curry',8.99)">Add</button>
+        </div>
 
-    <p>For the past eight years, Ms Trina held onto a quiet dream — to share her food with more people, not as restaurant-style dishes, but as proper homemade Indian and Bangladeshi meals.</p>
+        <div class="menu-item">
+            Paneer Butter Masala – £8.99
+            <button onclick="addToCart('Paneer Butter Masala',8.99)">Add</button>
+        </div>
 
-    <p>Today, that dream has finally come to life.</p>
+        <div class="menu-item">
+            Egg Curry – £7.99
+            <button onclick="addToCart('Egg Curry',7.99)">Add</button>
+        </div>
+    </div>
 
-    <p><strong>Home Spice Catering</strong> is not just a kitchen — it is the result of passion, patience, and belief.</p>
+    <div class="category">
+        <h3>Add-ons & Sides</h3>
 
-    <p><strong>This is food made with care — just like home.</strong></p>
+        <div class="menu-item">
+            Aloo Paratha – £4.99
+            <button onclick="addToCart('Aloo Paratha',4.99)">Add</button>
+        </div>
+
+        <div class="menu-item">
+            Gulab Jamun – £2.99
+            <button onclick="addToCart('Gulab Jamun',2.99)">Add</button>
+        </div>
+    </div>
+
+    <!-- CART -->
+    <div class="cart">
+        <h3>Your Order</h3>
+        <ul id="cartList"></ul>
+        <p><strong>Total: £<span id="total">0</span></strong></p>
+
+        <input type="text" id="address" placeholder="Enter delivery address" style="width:100%;padding:10px;margin-top:10px;">
+
+        <br><br>
+        <button class="btn" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
+    </div>
+
 </div>
 
 <!-- FOOTER -->
 <div class="footer">
     <p><strong>Home Spice Catering</strong></p>
     <p>Powered by Trina’s Cloud Kitchen</p>
-    <p>© 2026 All Rights Reserved</p>
 </div>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price) {
+    cart.push({name, price});
+    total += price;
+    updateCart();
+}
+
+function updateCart() {
+    let list = document.getElementById("cartList");
+    list.innerHTML = "";
+
+    cart.forEach(item => {
+        let li = document.createElement("li");
+        li.textContent = item.name + " - £" + item.price.toFixed(2);
+        list.appendChild(li);
+    });
+
+    document.getElementById("total").innerText = total.toFixed(2);
+}
+
+function sendWhatsApp() {
+    let address = document.getElementById("address").value;
+
+    if(cart.length === 0){
+        alert("Cart is empty!");
+        return;
+    }
+
+    if(address === ""){
+        alert("Please enter address");
+        return;
+    }
+
+    let message = "🧾 *Home Spice Catering Order*\n\n";
+
+    cart.forEach(item => {
+        message += item.name + " - £" + item.price.toFixed(2) + "\n";
+    });
+
+    message += "\nTotal: £" + total.toFixed(2);
+    message += "\n\n📍 Address: " + address;
+
+    let url = "https://wa.me/441726806556?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
