@@ -8,124 +8,137 @@
 <style>
 
 body {
-    margin:0;
-    font-family:Segoe UI;
-    background:linear-gradient(to bottom,#0f172a,#1e293b);
+    margin: 0;
+    font-family: 'Segoe UI', Arial;
+    background: linear-gradient(to bottom, #0f172a, #1e293b);
+}
+
+/* NAVBAR */
+.nav {
+    background: #020617;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    background: #1e40af;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
 }
 
 /* HEADER */
 header {
-    text-align:center;
-    padding:30px;
+    text-align: center;
+    padding: 30px;
 }
 
 header h1 {
-    color:#38bdf8;
-    font-size:40px;
-    margin:0;
+    color: #38bdf8;
+    font-size: 42px;
+    margin: 0;
 }
 
 .sub {
-    color:white;
-    font-size:18px;
+    color: white;
+    font-size: 20px;
+    margin-top: 6px;
 }
 
-/* BRAND MESSAGE */
+/* MESSAGE */
 .home-msg {
-    text-align:center;
-    padding:15px;
-    background:#1e293b;
-    color:#facc15;
-    font-weight:bold;
+    text-align: center;
+    padding: 14px;
+    background: #1e293b;
+    color: #facc15;
+    font-weight: bold;
 }
 
 /* CONTAINER */
 .container {
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
 }
 
+/* SECTION */
 .section-title {
-    color:white;
-    font-size:24px;
-    margin-top:25px;
+    color: white;
+    font-size: 24px;
+    margin-top: 25px;
 }
 
 /* CARD */
 .card {
-    background:white;
-    padding:18px;
-    border-radius:12px;
-    margin-bottom:12px;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
 .card-top {
-    display:flex;
-    justify-content:space-between;
-    font-size:20px;
-    font-weight:bold;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .popular {
-    background:#f59e0b;
-    color:white;
-    padding:3px 8px;
-    border-radius:6px;
-    font-size:11px;
+    background: #f59e0b;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
 }
 
 /* QTY */
 .qty button {
-    width:30px;
-    height:30px;
-    background:#1e40af;
-    color:white;
-    border:none;
+    width: 30px;
+    height: 30px;
+    background: #1e40af;
+    color: white;
+    border: none;
 }
 
 .qty span {
-    margin:0 10px;
+    margin: 0 10px;
 }
 
 /* BUTTON */
 .btn {
-    width:100%;
-    padding:15px;
-    background:#1e40af;
-    color:white;
-    border:none;
-    margin-top:10px;
-}
-
-/* FORM */
-.box {
-    display:none;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-}
-
-input, select {
-    width:100%;
-    padding:12px;
-    margin:10px 0;
+    width: 100%;
+    padding: 15px;
+    background: #1e40af;
+    color: white;
+    border: none;
+    margin-top: 10px;
 }
 
 /* CART */
 .cart {
-    position:fixed;
-    bottom:0;
-    width:100%;
-    background:white;
-    padding:10px;
-    text-align:center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    text-align: center;
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- NAVBAR -->
+<div class="nav">
+<a href="#">🏠 Home</a>
+<a href="event-catering.html">🎉 Event Catering</a>
+<a href="#order">🛒 Order Now</a>
+</div>
 
 <header>
 <h1>Home Spice Catering</h1>
@@ -136,9 +149,8 @@ input, select {
 🍛 Not restaurant food — real homemade Indian & Bangladeshi cooking, prepared fresh with traditional recipes
 </div>
 
-<div class="container">
+<div class="container" id="order">
 
-<!-- RICE -->
 <div class="section-title">🍚 Rice & Bowl Meals</div>
 
 <div class="card">
@@ -163,84 +175,7 @@ Lamb Akhni <span class="popular">Popular</span> <span>£10.99</span>
 </div>
 </div>
 
-<div class="card">
-<div class="card-top">Rajma Chawal <span>£6.99</span></div>
-<div class="qty">
-<button onclick="changeQty('rajma',-1)">-</button>
-<span id="rajma">0</span>
-<button onclick="changeQty('rajma',1)">+</button>
-</div>
-</div>
-
-<div class="card">
-<div class="card-top">Chole Chawal <span>£6.99</span></div>
-<div class="qty">
-<button onclick="changeQty('chole',-1)">-</button>
-<span id="chole">0</span>
-<button onclick="changeQty('chole',1)">+</button>
-</div>
-</div>
-
-<!-- CURRIES -->
-<div class="section-title">🍗 Curries</div>
-
-<div class="card">
-<div class="card-top">
-Butter Chicken <span class="popular">Popular</span> <span>£9.99</span>
-</div>
-<div class="qty">
-<button onclick="changeQty('butter',-1)">-</button>
-<span id="butter">0</span>
-<button onclick="changeQty('butter',1)">+</button>
-</div>
-</div>
-
-<div class="card">
-<div class="card-top">Chicken Curry <span>£8.99</span></div>
-<div class="qty">
-<button onclick="changeQty('chicken',-1)">-</button>
-<span id="chicken">0</span>
-<button onclick="changeQty('chicken',1)">+</button>
-</div>
-</div>
-
-<!-- SIDES -->
-<div class="section-title">🫓 Add-ons</div>
-
-<div class="card">
-<div class="card-top">Aloo Paratha <span>£4.99</span></div>
-<div class="qty">
-<button onclick="changeQty('paratha',-1)">-</button>
-<span id="paratha">0</span>
-<button onclick="changeQty('paratha',1)">+</button>
-</div>
-</div>
-
-<!-- DEALS -->
-<div class="section-title">💡 Deals</div>
-
-<div class="card">
-<div class="card-top">
-Meal Deal 1 <span class="popular">Best</span> <span>£10.99</span>
-</div>
-<div class="qty">
-<button onclick="changeQty('deal1',-1)">-</button>
-<span id="deal1">0</span>
-<button onclick="changeQty('deal1',1)">+</button>
-</div>
-</div>
-
-<!-- DESSERT -->
 <div class="section-title">🍰 Desserts</div>
-
-<div class="card">
-<div class="card-top">Gulab Jamun <span>£2.99</span></div>
-<div class="qty">
-<button onclick="changeQty('gulab',-1)">-</button>
-<span id="gulab">0</span>
-<button onclick="changeQty('gulab',1)">+</button>
-</div>
-</div>
 
 <div class="card">
 <div class="card-top">Birthday Cake <span>£25</span></div>
@@ -251,20 +186,7 @@ Meal Deal 1 <span class="popular">Best</span> <span>£10.99</span>
 </div>
 </div>
 
-<button class="btn" onclick="showForm()">Checkout</button>
-
-<div class="box" id="formBox">
-<input id="miles" placeholder="Distance (miles)">
-<input type="date" id="date">
-
-<select id="time">
-<option>12:00</option>
-<option>15:00</option>
-<option>18:00</option>
-</select>
-
-<button class="btn" onclick="checkout()">Place Order</button>
-</div>
+<button class="btn" onclick="updateTotal()">Update Total</button>
 
 </div>
 
@@ -275,11 +197,7 @@ Total: £<span id="total">0</span>
 <script>
 
 let prices={
-biryani:9.99,akhni:10.99,rajma:6.99,chole:6.99,
-butter:9.99,chicken:8.99,
-paratha:4.99,
-deal1:10.99,
-gulab:2.99,cake:25
+biryani:9.99,akhni:10.99,cake:25
 };
 
 function changeQty(id,change){
@@ -296,29 +214,6 @@ for(let i in prices){
 total+=parseInt(document.getElementById(i).innerText)*prices[i];
 }
 document.getElementById("total").innerText=total.toFixed(2);
-}
-
-function showForm(){
-document.getElementById("formBox").style.display="block";
-}
-
-function checkout(){
-let total=parseFloat(document.getElementById("total").innerText);
-let miles=parseFloat(document.getElementById("miles").value||0);
-let final=total+(miles*1.5);
-
-let date=document.getElementById("date").value;
-let time=document.getElementById("time").value;
-
-let now=new Date();
-let order=new Date(date+"T"+time);
-
-if((order-now)/(1000*60*60)<3){
-alert("Minimum 3 hours notice required");
-return;
-}
-
-window.open("https://wa.me/44XXXXXXXXXX?text=Total £"+final.toFixed(2));
 }
 
 </script>
