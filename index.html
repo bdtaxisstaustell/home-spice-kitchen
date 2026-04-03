@@ -11,7 +11,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Arial;
-    background: linear-gradient(180deg, #0b1120, #1f2937);
+    background: #b0e0e6; /* POWDER BLUE */
 }
 
 /* HEADER */
@@ -67,6 +67,14 @@ header h1 {
     max-width: 900px;
     margin: auto;
     padding: 20px;
+}
+
+/* CATEGORY TITLE */
+.category-title {
+    color: #020617;
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 /* CARD */
@@ -170,7 +178,7 @@ input, select {
 
 <div class="container">
 
-<h2 style="color:white;">Menu</h2>
+<h2>Menu</h2>
 <div id="menu"></div>
 
 <button class="btn" onclick="showForm()">Continue Order</button>
@@ -211,16 +219,12 @@ input, select {
 
 <p>
 For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-
 <br><br>
-From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.
-
+From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed.
 <br><br>
-For the past eight years, she held onto a dream — to share real homemade Indian and Bangladeshi food.
-
+For eight years, she held onto a dream — to share real homemade Indian and Bangladeshi food.
 <br><br>
 Today, that dream is reality.
-
 <br><br>
 <strong>This is not restaurant food.</strong><br>
 This is food made with care, tradition, and heart — just like home.
@@ -242,22 +246,38 @@ This is food made with care, tradition, and heart — just like home.
 
 <script>
 
-let items = {
-"Basmati Rice":3,
-"Pilau Rice":3.5,
-"Akhni Chicken":10,
-"Lamb Tehari":11,
-"Murgh Roast":11,
-"Lamb Rezala":11,
-"Aloo Bhuna":10,
-"Fish Jhol":9,
-"Dim Bhuna":9
+let menuData = {
+"Rice": {
+    "Basmati Rice":3,
+    "Pilau Rice":3.5
+},
+"Main Course": {
+    "Akhni Chicken":10,
+    "Lamb Tehari":11,
+    "Murgh Roast":11,
+    "Lamb Rezala":11,
+    "Aloo Bhuna":10,
+    "Fish Jhol":9,
+    "Dim Bhuna":9
+},
+"Desserts": {
+    "Gulab Jamun":5,
+    "Kheer":5
+},
+"Snacks": {
+    "Samosa":3,
+    "Pakora":4
+}
 };
 
 let cart = {};
 
 function loadMenu(){
 let html="";
+for(let category in menuData){
+html += `<div class="category-title">${category}</div>`;
+let items = menuData[category];
+
 for(let item in items){
 html+=`
 <div class="card">
@@ -271,6 +291,7 @@ html+=`
 <button onclick="changeQty('${item}',1)">+</button>
 </div>
 </div>`;
+}
 }
 document.getElementById("menu").innerHTML=html;
 }
@@ -291,7 +312,6 @@ function checkout(){
 window.open("https://wa.me/441726806556");
 }
 
-/* STORY MODAL */
 function openStory(){
 document.getElementById("storyModal").style.display="block";
 }
