@@ -7,29 +7,35 @@
 
 <style>
 body {margin:0;font-family:Arial;background:#B790D4;}
-header {background:#020617;padding:25px;text-align:center;color:#38bdf8;font-size:42px;font-weight:bold;}
+
+header {
+background:#020617;
+padding:25px;
+text-align:center;
+color:#38bdf8;
+font-size:42px;
+font-weight:bold;
+}
+
 .sub {color:#cbd5f5;font-size:16px;}
-.top-bar {background:#020617;color:white;text-align:center;padding:12px;font-weight:bold;font-size:18px;}
-.hero{text-align:center;padding:12px;}
-.hero a{margin:6px;padding:12px 18px;border-radius:6px;text-decoration:none;font-weight:bold;}
-.btn-blue{background:#38bdf8;color:black;}
-.btn-yellow{background:#facc15;color:black;}
-.container{max-width:900px;margin:auto;padding:15px;}
-.category{font-size:30px;font-weight:bold;margin-top:25px;}
-.card{background:white;padding:15px;border-radius:10px;margin:12px 0;}
-.card-top{display:flex;justify-content:space-between;font-size:22px;font-weight:bold;}
-.desc{font-size:17px;margin-top:6px;}
-.qty{margin-top:10px;}
-.qty button{width:32px;height:32px;background:#1e40af;color:white;border:none;}
-.qty span{margin:0 12px;font-size:18px;}
-.cart{background:white;padding:15px;border-radius:10px;margin-top:20px;}
-.total{font-size:24px;font-weight:bold;margin-top:10px;}
-input{width:100%;padding:12px;margin-top:10px;}
-.btn{width:100%;padding:14px;background:#1e40af;color:white;border:none;margin-top:12px;font-size:16px;}
-.modal{display:none;position:fixed;background:rgba(0,0,0,0.7);width:100%;height:100%;top:0;}
-.modal-content{background:white;margin:8% auto;padding:20px;width:85%;max-width:600px;border-radius:10px;}
-.close{float:right;cursor:pointer;font-size:22px;}
-.footer{background:#020617;color:white;padding:20px;font-size:14px;}
+
+.launch-banner{
+background:#020617;
+color:#facc15;
+text-align:center;
+padding:30px;
+font-size:18px;
+line-height:1.7;
+border-bottom:4px solid #facc15;
+}
+
+.footer{
+background:#020617;
+color:white;
+padding:20px;
+font-size:14px;
+text-align:center;
+}
 </style>
 </head>
 
@@ -40,53 +46,17 @@ Home Spice Catering
 <div class="sub">Powered by Trina’s Cloud Kitchen</div>
 </header>
 
-<div class="top-bar">
-⏱ 3PM – 8PM • Sunday & Monday CLOSED • Delivery Only
-</div>
+<div class="launch-banner">
+✨ <strong>A New Standard of Dining Arrives</strong> ✨<br><br>
 
-<div class="hero">
-<a href="https://wa.me/441726806556?text=Event%20Catering%20Enquiry" class="btn-blue">Book Event Catering</a>
-<a href="#" onclick="openStory()" class="btn-yellow">Our Story</a>
-</div>
+We are delighted to announce the launch of <strong>Luxury Home Spice Catering</strong>, 
+a cloud kitchen redefining indulgence in St Austell.<br><br>
 
-<div class="container">
-<div id="menu"></div>
+From the comfort of your home, experience elevated flavours, crafted with precision and passion.<br><br>
 
-<div class="cart">
-<h3>Your Cart</h3>
-<div id="cartItems"></div>
+<strong>Opening 15th April</strong><br><br>
 
-<div>Food: £<span id="foodTotal">0</span></div>
-<div>Delivery: £<span id="delivery">0</span></div>
-<div class="total">Total: £<span id="total">0</span></div>
-
-<input id="miles" placeholder="Distance (miles)" oninput="renderCart()">
-<input id="name" placeholder="Name">
-<input id="phone" placeholder="Phone">
-<input id="address" placeholder="Delivery Address">
-
-<button class="btn" onclick="sendWhatsApp()">Place Order</button>
-</div>
-</div>
-
-<!-- STORY -->
-<div id="storyModal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeStory()">✖</span>
-<h3>Our Story — From Heart to Home</h3>
-<p>
-For Ms Trina, cooking has never been just about food — it has always been about care, comfort, and connection.
-<br><br>
-From a young age, she found joy in the kitchen. The sound of spices crackling, the warmth of a home-cooked meal, and the smiles that followed — this is where her passion truly lived.
-<br><br>
-For the past eight years, she held onto a dream — to share real homemade Indian and Bangladeshi food.
-<br><br>
-Today, that dream is reality.
-<br><br>
-<strong>This is not restaurant food.</strong><br>
-This is food made with care, tradition, and heart — just like home.
-</p>
-</div>
+<em>An exclusive journey of taste awaits.</em>
 </div>
 
 <div class="footer">
@@ -99,99 +69,6 @@ This is food made with care, tradition, and heart — just like home.
 • Delivery only
 </p>
 </div>
-
-<script>
-const MIN_ORDER = 10;
-
-function deliveryFee(m){
-m=parseFloat(m)||0;
-if(m<=2) return 2;
-if(m<=5) return 4;
-if(m<=10) return 6;
-return 10;
-}
-
-let menu = [
-{cat:"🍚 Rice Dishes",name:"Traditional Basmati Rice",price:3,desc:"Light, fluffy long-grain basmati rice, perfectly steamed for a clean, aromatic finish."},
-{cat:"🍚 Rice Dishes",name:"Home Style Pilau Rice",price:3.5,desc:"Fragrant basmati rice cooked with mild spices, whole garam masala, and a hint of warmth."},
-
-{cat:"🍗 Main Dishes",name:"Akhni Chicken",price:10,desc:"Slow-cooked chicken with aromatic spices and rice, a comforting one-pot dish full of flavour."},
-{cat:"🍗 Main Dishes",name:"Lamb Tehari",price:11,desc:"Spiced rice cooked with tender lamb pieces, rich in traditional South Asian flavours."},
-{cat:"🍗 Main Dishes",name:"Indian Home Style Murogh Roast (Drumstick)",price:11,desc:"Juicy chicken drumstick marinated and roasted in homestyle spices, slightly smoky and rich."},
-{cat:"🍗 Main Dishes",name:"Lamb Rezala",price:11,desc:"A creamy, mildly spiced lamb curry with yoghurt, nuts, and a delicate aromatic gravy."},
-{cat:"🍗 Main Dishes",name:"Traditional Lamb/Chicken Thick Aloo Bhuna",price:11,desc:"Slow-cooked meat with potatoes in a thick, rich bhuna-style gravy packed with bold spices."},
-{cat:"🍗 Main Dishes",name:"Fish Jhol",price:9,desc:"Light and flavourful fish curry in a thin, spiced broth—comforting and traditional."},
-{cat:"🍗 Main Dishes",name:"Dim Bhuna (Egg)",price:9,desc:"Boiled eggs cooked in a thick, spiced onion-tomato gravy, rich and satisfying."}
-];
-
-let cart={};
-
-function loadMenu(){
-let html="",current="";
-menu.forEach(item=>{
-if(item.cat!==current){current=item.cat;html+=`<div class="category">${item.cat}</div>`;}
-html+=`<div class="card">
-<div class="card-top"><span>${item.name}</span><span>£${item.price}</span></div>
-<div class="desc">${item.desc}</div>
-<div class="qty">
-<button onclick="update('${item.name}',-1)">-</button>
-<span id="${item.name}">0</span>
-<button onclick="update('${item.name}',1)">+</button>
-</div>
-</div>`;
-});
-document.getElementById("menu").innerHTML=html;
-}
-
-function update(name,val){
-let el=document.getElementById(name);
-let qty=Math.max(0,(parseInt(el.innerText)||0)+val);
-el.innerText=qty;
-cart[name]=qty;
-renderCart();
-}
-
-function renderCart(){
-let html="",food=0;
-menu.forEach(item=>{
-let q=cart[item.name]||0;
-if(q>0){html+=`${item.name} x ${q}<br>`;food+=q*item.price;}
-});
-let miles=document.getElementById("miles").value;
-let delivery=deliveryFee(miles);
-let total=food+delivery;
-
-document.getElementById("cartItems").innerHTML=html;
-document.getElementById("foodTotal").innerText=food.toFixed(2);
-document.getElementById("delivery").innerText=delivery.toFixed(2);
-document.getElementById("total").innerText=total.toFixed(2);
-}
-
-function sendWhatsApp(){
-let food=parseFloat(document.getElementById("foodTotal").innerText);
-if(food < MIN_ORDER){alert("Minimum order £10");return;}
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let address=document.getElementById("address").value;
-let total=document.getElementById("total").innerText;
-
-let msg=`New Order:%0A${name}%0A${phone}%0A${address}%0A%0A`;
-
-for(let i in cart){
-if(cart[i]>0){msg+=`${i} x ${cart[i]}%0A`;}
-}
-
-msg+=`%0ATotal £${total}`;
-
-window.open(`https://wa.me/441726806556?text=${msg}`);
-}
-
-function openStory(){document.getElementById("storyModal").style.display="block";}
-function closeStory(){document.getElementById("storyModal").style.display="none";}
-
-loadMenu();
-</script>
 
 </body>
 </html>
