@@ -2,98 +2,261 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Panel</title>
+<title>Home Spice Admin</title>
 
 <style>
 body {
     font-family: Arial;
-    background: #f5f5f5;
-    padding: 20px;
+    margin:0;
+    background:#0f172a;
+    color:white;
+}
+
+header {
+    background:#020617;
+    padding:20px;
+    text-align:center;
+    font-size:24px;
+    color:#38bdf8;
+}
+
+.container {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.panel {
+    flex:1;
+    min-width:300px;
+    padding:20px;
 }
 
 .box {
-    background: white;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 8px;
+    background:#1e293b;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:10px;
+}
+
+input, select {
+    width:100%;
+    padding:10px;
+    margin:5px 0;
+    border:none;
+    border-radius:6px;
 }
 
 button {
-    padding: 10px;
-    margin-top: 5px;
+    padding:10px;
+    margin-top:5px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.btn {
+    background:#38bdf8;
+}
+
+.btn-danger {
+    background:#ef4444;
+}
+
+.btn-success {
+    background:#22c55e;
+}
+
+.order {
+    border-bottom:1px solid #334155;
+    padding:10px 0;
+}
+
+.status {
+    font-weight:bold;
+}
+
+.login {
+    max-width:300px;
+    margin:100px auto;
+    background:#1e293b;
+    padding:20px;
+    border-radius:10px;
 }
 </style>
 </head>
 
 <body>
 
-<h2>Admin Login</h2>
+<header>🍽 Home Spice Admin Dashboard</header>
 
-<div class="box" id="loginBox">
-<input type="password" id="pass" placeholder="Enter password">
-<button onclick="login()">Login</button>
+<!-- LOGIN -->
+<div id="loginBox" class="login">
+<h3>Admin Login</h3>
+<input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+<button class="btn" onclick="login()">Login</button>
 </div>
 
-<div id="adminPanel" style="display:none;">
+<!-- MAIN DASHBOARD -->
+<div id="dashboard" style="display:none;">
+<div class="container">
 
-<h2>Manage Menu</h2>
+<!-- MENU PANEL -->
+<div class="panel">
 
 <div class="box">
+<h3>➕ Add Menu Item</h3>
 <input id="itemName" placeholder="Item Name">
 <input id="itemPrice" placeholder="Price">
-<button onclick="addItem()">Add Item</button>
+<button class="btn" onclick="addItem()">Add Item</button>
 </div>
 
 <div class="box">
-<h3>Current Items</h3>
-<ul id="itemList"></ul>
+<h3>📋 Menu Items</h3>
+<ul id="menuList"></ul>
 </div>
 
+</div>
+
+<!-- ORDERS PANEL -->
+<div class="panel">
+
+<div class="box">
+<h3>📦 Orders</h3>
+<div id="orders"></div>
+</div>
+
+</div>
+
+</div>
 </div>
 
 <script>
 
-let password = "trina123"; // change this
+let token = "";
 
-let items = [
-    {name:"Lamb Akhni", price:14},
-    {name:"Chicken Biryani", price:14},
-    {name:"Chicken Curry", price:15}
-];
+/* ================= LOGIN ================= */
+async function login(){
+  const res = await fetch("/login", {
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({
+      username: user.value,
+      password: pass.value
+    })
+  });
 
-function login(){
-let p = document.getElementById("pass").value;
+  const data = await res.json();
 
-if(p === password){
-document.getElementById("loginBox").style.display="none";
-document.getElementById("adminPanel").style.display="block";
-render();
-}else{
-alert("Wrong password");
-}
-}
-
-function render(){
-let list="";
-items.forEach((item,i)=>{
-list += "<li>"+item.name+" (£"+item.price+") "+
-"<button onclick='removeItem("+i+")'>Delete</button></li>";
-});
-document.getElementById("itemList").innerHTML = list;
+  if(data.token){
+    token = data.token;
+    loginBox.style.display="none";
+    dashboard.style.display="block";
+    loadMenu();
+    loadOrders();
+  } else {
+    alert("Invalid login");
+  }
 }
 
-function addItem(){
-let name = document.getElementById("itemName").value;
-let price = document.getElementById("itemPrice").value;
+/* ================= MENU ================= */
+async function loadMenu(){
+  const res = await fetch("/menu");
+  const items = await res.json();
 
-items.push({name:name, price:price});
-render();
+  let html="";
+  items.forEach(item=>{
+    html += `
+      <li>
+        ${item.name} (£${item.price})
+        <button class="btn-danger" onclick="deleteItem('${item._id}')">Delete</button>
+      </li>
+    `;
+  });
+
+  document.getElementById("menuList").innerHTML = html;
 }
 
-function removeItem(i){
-items.splice(i,1);
-render();
+async function addItem(){
+  if(!itemName.value || !itemPrice.value){
+    alert("Fill all fields");
+    return;
+  }
+
+  await fetch("/menu", {
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json",
+      Authorization: token
+    },
+    body: JSON.stringify({
+      name: itemName.value,
+      price: Number(itemPrice.value)
+    })
+  });
+
+  itemName.value="";
+  itemPrice.value="";
+  loadMenu();
 }
+
+async function deleteItem(id){
+  await fetch("/menu/" + id, {
+    method:"DELETE",
+    headers:{ Authorization: token }
+  });
+
+  loadMenu();
+}
+
+/* ================= ORDERS ================= */
+async function loadOrders(){
+  const res = await fetch("/orders", {
+    headers:{ Authorization: token }
+  });
+
+  const data = await res.json();
+
+  let html="";
+
+  data.forEach(o => {
+    html += `
+      <div class="order">
+        <strong>${o.name}</strong><br>
+        📍 ${o.address}<br>
+
+        ${o.items.map(i => `
+          🍽 ${i.name} x ${i.qty}
+        `).join("<br>")}
+
+        <br><b>Total: £${o.total}</b><br>
+        <span class="status">Status: ${o.status}</span><br>
+
+        <button class="btn-success" onclick="updateStatus('${o._id}','Accepted')">Accept</button>
+        <button class="btn-danger" onclick="updateStatus('${o._id}','Delivered')">Deliver</button>
+      </div>
+    `;
+  });
+
+  document.getElementById("orders").innerHTML = html;
+}
+
+async function updateStatus(id, status){
+  await fetch("/order/" + id, {
+    method:"PUT",
+    headers:{
+      "Content-Type":"application/json",
+      Authorization: token
+    },
+    body: JSON.stringify({status})
+  });
+
+  loadOrders();
+}
+
+/* AUTO REFRESH */
+setInterval(loadOrders, 5000);
 
 </script>
 
